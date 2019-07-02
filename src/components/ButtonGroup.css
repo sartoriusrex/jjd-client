@@ -1,0 +1,23 @@
+.path-color g {
+  fill: #102A43;
+}
+
+.path-color path {
+  stroke: #102A43;
+}
+
+.path-color-light path {
+  stroke: #f7f7f7;
+}
+
+.path-color-light g {
+  fill: #f7f7f7;
+}
+
+.path-color-like g {
+  fill: rgb(175, 0, 0)
+}
+
+.path-color-like path {
+  stroke: rgb(175, 0, 0);
+}

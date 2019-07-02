@@ -1,0 +1,9 @@
+$blue:            #102A43 !default;
+$cyan:            #187583 !default;
+$gray-600:        #3c4044 !default;
+$green:           #1a702e !default;
+$gray-300:        #6c7783 !default;
+$font-size-base:    .875rem !default;
+
+// Any modifications to global styles must come before this import link below
+@import '~bootstrap/scss/bootstrap.scss';

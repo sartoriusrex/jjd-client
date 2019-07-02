@@ -1,0 +1,28 @@
+body {
+  background-color: #e6ecf0
+}
+
+/* Nav  */
+
+.navbar {
+  margin-bottom: 1rem;
+}
+
+.navbar a {
+  font-weight: bold;
+}
+
+.navbar a:hover {
+  color: black;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+
+.login-menu {
+  border-left: 2px solid blue;
+}
+
+ul.nav.navbar-nav li {
+  margin: 0 0.5rem;
+}
