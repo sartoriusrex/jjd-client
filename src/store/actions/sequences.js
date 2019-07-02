@@ -55,15 +55,16 @@ export const createSequence = sequence => ( dispatch, getState ) => {
   let id =            currentUser.user.id;
   let name =          sequence.name;
   let description =   sequence.description;
-  let techniques =    sequence.techniques.map( tech => tech._id ); //send over to api only array of technique ids and not the entire objects;
+  let techniqueObjects =    sequence.techniques;
+  let techniques =  sequence.techniques.map( tech => tech._id ); //send over to api only array of technique ids and not the entire objects;
   let notes =         sequence.notes;
   let thumbnail;
   
   // Grab thumbnail from one the first technique in the array that has one defined and break, otherwise set to undefined
 
-  for ( let i = 0; i < techniques.length; i++ ){
-    if( techniques[i].thumbnail ) {
-      thumbnail = techniques[i].thumbnail
+  for ( let i = 0; i < techniqueObjects.length; i++ ){
+    if( techniqueObjects[i].thumbnail ) {
+      thumbnail = techniqueObjects[i].thumbnail
       break;
     }
   };
@@ -93,18 +94,19 @@ export const editSeq = sequence => ({
 
 export const editSequence = ( sequenceid, formValues, to ) => ( dispatch, getState ) => {
   let { currentUser } = getState();
-  let id =            currentUser.user.id;
-  let name =          formValues.name;
-  let description =   formValues.description;
-  let techniques =    formValues.techniques.map( tech => tech._id ); //send over to api only array of technique ids and not the entire objects;
-  let notes =         formValues.notes;
+  let id =                  currentUser.user.id;
+  let name =                formValues.name;
+  let description =         formValues.description;
+  let techniqueObjects =    formValues.techniques;
+  let techniques =          formValues.techniques.map( tech => tech._id ); //send over to api only array of technique ids and not the entire objects;
+  let notes =               formValues.notes;
   let thumbnail;
   
   // Grab thumbnail from one the first technique in the array that has one defined and break, otherwise set to undefined
 
-  for ( let i = 0; i < techniques.length; i++ ){
-    if( techniques[i].thumbnail ) {
-      thumbnail = techniques[i].thumbnail
+  for ( let i = 0; i < techniqueObjects.length; i++ ){
+    if( techniqueObjects[i].thumbnail ) {
+      thumbnail = techniqueObjects[i].thumbnail
       break;
     }
   };
