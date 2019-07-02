@@ -40,7 +40,7 @@ import { removeError } from "../store/actions/errors";
 const Main = props => {
   const { errors, currentUser } = props;
   return(
-    <div className="container main min-vh-100 pt-3 pl-0 pr-0">
+    <div className="container main min-vh-100 pt-3 pl-1 pr-1">
       <Switch>
         <Route exact path="/"
           render={ () => <HomePage />} />
