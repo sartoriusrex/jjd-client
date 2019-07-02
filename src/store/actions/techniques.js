@@ -2,6 +2,7 @@ import { apiCall } from "../../services/api";
 import { addError } from "./errors";
 import { LOAD_TECHNIQUES, REMOVE_TECHNIQUES, EDIT_TECHNIQUE, CREATE_TECHNIQUE, SHOW_TECHNIQUE } from "./actionTypes";
 import history from '../../history';
+import { reset } from 'redux-form';
 
 //Load all techniques
 
@@ -79,6 +80,7 @@ export const createTechnique = technique => ( dispatch, getState ) => {
     )
     .then( res => {
       dispatch( createTech( res ));
+      dispatch( reset( 'sequenceForm'));
       history.push(`/techniques/${ res._id }`);
     })
     .catch( err => {
@@ -127,6 +129,7 @@ export const editTechnique = ( techid, formValues, to ) => ( dispatch, getState 
     )
     .then( res => {
       dispatch( editTech( res ));
+      dispatch( reset( 'sequenceForm'));
 
       if( to ) {
         history.push( to );

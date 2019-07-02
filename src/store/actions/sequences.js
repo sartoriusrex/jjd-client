@@ -2,6 +2,7 @@ import { apiCall } from "../../services/api";
 import { addError } from "./errors";
 import { LOAD_SEQUENCES, REMOVE_SEQUENCE, EDIT_SEQUENCE, CREATE_SEQUENCE, SHOW_SEQUENCE } from "./actionTypes";
 import history from '../../history';
+import { reset } from 'redux-form';
 
 //Load all sequences
 
@@ -77,6 +78,7 @@ export const createSequence = sequence => ( dispatch, getState ) => {
     )
     .then( res => {
       dispatch( createSeq( res ) );
+      dispatch( reset( 'techniqueForm' ))
       history.push( `/sequences/${ res._id }` );
     })
     .catch( err => {
@@ -119,7 +121,8 @@ export const editSequence = ( sequenceid, formValues, to ) => ( dispatch, getSta
     )
     .then( res => {
       dispatch( editSeq( res ) );
-
+      dispatch( reset( 'techniqueForm' ))
+      
       if( to ) {
         history.push( to );
       } else {

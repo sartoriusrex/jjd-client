@@ -279,7 +279,7 @@ const wrappedForm = reduxForm({
   form: 'techniqueForm',
   validate: validateTechs,
   enableReinitialize: true,
-  keepDirtyOnReinitialize: true,
+  keepDirtyOnReinitialize: false,
   destroyOnUnmount: false
 })( TechniqueForm );
 
