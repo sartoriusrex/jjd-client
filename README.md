@@ -1,3 +1,5 @@
+license: MIT
+
 Updated: 07/01/2019
 
 This is a personal project app that allows users to document Brazilian Jiu Jitsu techniques they've learned, cross-reference them, and build sequences to drill and reference later. The repo has two submodules for deploying to two separate servers: client and server.
