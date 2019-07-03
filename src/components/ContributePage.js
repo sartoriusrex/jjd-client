@@ -35,7 +35,7 @@ class ContributePage extends React.Component {
     const { isAuthenticated, message, errors } = this.props;
 
     return(
-      <>
+      <div className="container main min-vh-100 pt-3 pl-1 pr-1">
         <div
           className="container-fluid d-flex justify-content-start align-items-center flex-column pt-4 pb-4"
         >
@@ -99,7 +99,7 @@ class ContributePage extends React.Component {
             <></>
           }
         </div>
-      </>
+      </div>
     )
   }
 }

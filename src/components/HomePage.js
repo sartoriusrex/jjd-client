@@ -2,6 +2,7 @@ import React from "react";
 import { connect } from 'react-redux';
 import { Link } from "react-router-dom";
 
+import "./HomePage.css";
 import SearchForm from "./SearchBar";
 import { clearMessages } from '../store/actions/mail';
 import { removeError } from '../store/actions/errors';
@@ -24,7 +25,7 @@ class HomePage extends React.Component{
 
     return(
       <div 
-        className="w-100 vh-100 d-flex flex-column justify-content-start align-items-center"
+        className="w-100 vh-100 d-flex flex-column justify-content-center align-items-center cover mt-n5"
       >
         <div className="pb-5">
         {
@@ -45,16 +46,16 @@ class HomePage extends React.Component{
           <SearchForm to="Techniques" go="techs" />
         </div>
 
-        <div className="d-flex w-75 flex-column justify-content-between align-items-center flex-md-row">
+        <div className="d-flex flex-column justify-content-between align-items-center flex-md-row w-50">
           <Link to="/sequences/all">
-            <button className="btn btn-secondary m-4 shadow-lg">
-              Search for Drill Sequences
+            <button className="btn btn-secondary mt-3 shadow-lg">
+              All Drill Sequences
             </button>
           </Link>
 
           <Link to="/techniques/all">
-            <button className="btn btn-secondary m-4 shadow-lg">
-              Browse All Techniques
+            <button className="btn btn-secondary mt-3 shadow-lg">
+              All Techniques
             </button>
           </Link>
         </div>

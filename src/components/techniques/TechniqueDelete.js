@@ -21,12 +21,14 @@ class TechniqueDelete extends React.Component {
     }
 
     return (
-      <Delete
-        item="Technique"
-        actionHandler={ removeTechnique }
-        userid={ userid }
-        itemid={ techid }
-      />
+      <div className="container main min-vh-100 pt-3 pl-1 pr-1">
+        <Delete
+          item="Technique"
+          actionHandler={ removeTechnique }
+          userid={ userid }
+          itemid={ techid }
+        />
+      </div>
     );
   }
 }

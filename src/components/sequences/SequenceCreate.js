@@ -13,11 +13,13 @@ class SequenceCreate extends React.Component {
     let { initialValues } = this.props.location.state;
 
     return (
-      <SequenceForm
-        pageTitle="Create a Sequence"
-        onSubmit={ this.onSubmit }
-        initialValues={ initialValues }
-      />
+      <div className="container main min-vh-100 pt-3 pl-1 pr-1">
+        <SequenceForm
+          pageTitle="Create a Sequence"
+          onSubmit={ this.onSubmit }
+          initialValues={ initialValues }
+        />
+      </div>
     )
   }
 }

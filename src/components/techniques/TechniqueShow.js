@@ -122,7 +122,7 @@ class TechniqueShow extends React.Component {
     const { isAuthenticated, userId } = this.props;
 
     return (
-      <>
+      <div className="container main min-vh-100 pt-3 pl-1 pr-1">
       {/* The Back btn and search bar at the top */}
         <div className="d-flex justify-content-between align-items-baseline w-100 mb-4">
 
@@ -195,7 +195,7 @@ class TechniqueShow extends React.Component {
         <div className="p-4">
           {/* This is for spacing layout purposes only */}
         </div>
-      </>
+      </div>
     );
   }
 }

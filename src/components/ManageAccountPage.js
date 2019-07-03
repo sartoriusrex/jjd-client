@@ -17,56 +17,58 @@ class ManageAccountPage extends React.Component {
     const { message, errors, user } = this.props;
 
     return(
-      <div className="container-fluid d-flex flex-column align-items-center justify-content-start">
+      <div className="container main min-vh-100 pt-3 pl-1 pr-1">
+        <div className="container-fluid d-flex flex-column align-items-center justify-content-start">
 
-        {
-          message &&
-          <MessagesDisplay message={ message } />
-        }
-        {
-          errors &&
-          <ErrorsDisplay errors={ errors } />
-        }
+          {
+            message &&
+            <MessagesDisplay message={ message } />
+          }
+          {
+            errors &&
+            <ErrorsDisplay errors={ errors } />
+          }
 
-        <h2 className="pt-5 pb-5">Manage Account</h2>
+          <h2 className="pt-5 pb-5">Manage Account</h2>
 
-        <div className="d-flex flex-column justify-content-start align-items-center w-75 pb-2">
-          <div>
-            <strong>Username: </strong> {` ${ user.username }` }
+          <div className="d-flex flex-column justify-content-start align-items-center w-75 pb-2">
+            <div>
+              <strong>Username: </strong> {` ${ user.username }` }
+            </div>
+            <Link 
+              to={`/users/${ userid }/update-username`}
+              className="btn btn-primary shadow-lg m-3"
+            >
+              Change Username
+            </Link>
           </div>
+          
+          <div className="d-flex flex-column justify-content-start align-items-center w-75 pb-2">
+            <div>
+              <strong>E-mail: </strong> {` ${ user.email }` }
+            </div>
+            <Link 
+              to={`/users/${ userid }/update-email`}
+              className="btn btn-primary shadow-lg m-3"
+            >
+              Change e-mail
+            </Link>
+          </div>
+
           <Link 
-            to={`/users/${ userid }/update-username`}
+            to={`/users/${ userid }/update-password`}
             className="btn btn-primary shadow-lg m-3"
           >
-            Change Username
+            Change password
           </Link>
-        </div>
-        
-        <div className="d-flex flex-column justify-content-start align-items-center w-75 pb-2">
-          <div>
-            <strong>E-mail: </strong> {` ${ user.email }` }
-          </div>
+          
           <Link 
-            to={`/users/${ userid }/update-email`}
-            className="btn btn-primary shadow-lg m-3"
+            to={`/users/${ userid }/delete-account`}
+            className="btn btn-danger shadow-lg m-3"
           >
-            Change e-mail
+            Delete Account
           </Link>
         </div>
-
-        <Link 
-          to={`/users/${ userid }/update-password`}
-          className="btn btn-primary shadow-lg m-3"
-        >
-          Change password
-        </Link>
-        
-        <Link 
-          to={`/users/${ userid }/delete-account`}
-          className="btn btn-danger shadow-lg m-3"
-        >
-          Delete Account
-        </Link>
       </div>
     )
   }

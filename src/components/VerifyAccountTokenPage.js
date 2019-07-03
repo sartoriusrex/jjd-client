@@ -37,13 +37,15 @@ class VerifyAccountTokenPage extends React.Component {
     }
 
     return(
-      <div className="container-fluid pb-5 mb-5">
-        {
-          message &&
-          <MessagesDisplay message={ message } />
-        }
+      <div className="container main min-vh-100 pt-3 pl-1 pr-1">
+        <div className="container-fluid pb-5 mb-5">
+          {
+            message &&
+            <MessagesDisplay message={ message } />
+          }
 
-        <h2>Account Verified</h2>
+          <h2>Account Verified</h2>
+        </div>
       </div>
     )
   }

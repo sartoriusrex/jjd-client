@@ -9,7 +9,7 @@ import ErrorsDisplay from '../components/ErrorsDisplay';
 
 const TechniqueIndex = ({ errors, search }) => {
   return(
-    <>
+    <div className="container main min-vh-100 pt-3 pl-1 pr-1">
       { errors.message &&
         <ErrorsDisplay errors={ errors.message } />
       }
@@ -20,7 +20,7 @@ const TechniqueIndex = ({ errors, search }) => {
       </div>
       <ListTabNav to="Technique" />
       <TechniqueList search={ search }/>
-    </>
+    </div>
   );
 }
 

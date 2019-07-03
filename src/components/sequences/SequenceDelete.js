@@ -27,12 +27,14 @@ class SequenceDelete extends React.Component {
     }
 
     return(
-      <Delete
-      item="Sequence"
-      actionHandler={ this.onSubmit }
-      userid={ userid }
-      itemid={ sequenceid }
-      />
+      <div className="container main min-vh-100 pt-3 pl-1 pr-1">
+        <Delete
+        item="Sequence"
+        actionHandler={ this.onSubmit }
+        userid={ userid }
+        itemid={ sequenceid }
+        />
+      </div>
     )
   }
 }

@@ -11,10 +11,12 @@ class TechniqueCreate extends React.Component {
 
   render() {
     return (
-      <TechniqueForm
-        pageTitle="Create a Technique"
-        onSubmit={ this.onSubmit }
-      />
+      <div className="container main min-vh-100 pt-3 pl-1 pr-1">
+        <TechniqueForm
+          pageTitle="Create a Technique"
+          onSubmit={ this.onSubmit }
+        />
+      </div>
     )
   }
 }

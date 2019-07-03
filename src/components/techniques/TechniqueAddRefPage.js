@@ -35,7 +35,7 @@ class TechniqueAddRefPage extends React.Component{
     // location.state comes from state object passed down from Link, since TechAddRef is rendered directly by Main.js
 
     return(
-      <>
+      <div className="container main min-vh-100 pt-3 pl-1 pr-1">
         <div className="container-fluid d-flex flex-column align-items-center">
           <h2 className="text-center w-100 pb-0">Current { arrayName } To</h2>
           <h2 className="text-center w-100 pb-2">{`${ techName }`}</h2>
@@ -82,7 +82,7 @@ class TechniqueAddRefPage extends React.Component{
 
         <ListTabNav />
         <TechniqueAddRefList />
-      </>
+      </div>
     )
   }
 }

@@ -67,42 +67,44 @@ class ResetPasswordTokenPage extends React.Component {
     }
 
     return(
-      <div className="container-fluid pb-5 mb-5">
-        {
-          message &&
-          <MessagesDisplay message={ message } />
-        }
-        {
-          errors &&
-          <ErrorsDisplay errors={ errors } />
-        }
+      <div className="container main min-vh-100 pt-3 pl-1 pr-1">
+        <div className="container-fluid pb-5 mb-5">
+          {
+            message &&
+            <MessagesDisplay message={ message } />
+          }
+          {
+            errors &&
+            <ErrorsDisplay errors={ errors } />
+          }
 
-        <form
-          onSubmit={ this.props.handleSubmit( this.onSubmit ) }
-          className="w-100 d-flex justify-content-center flex-column align-items-center"
-        >
-          <h2> Set a New Password </h2>
-
-          <Field
-            name="email"
-            component={ this.renderInput }
-            label="E-mail Address"
-          />
-
-          <Field
-            name="password"
-            component={ this.renderInput }
-            label="Password"
-            className="mb-4 form-control w-75"
-          />
-
-          <button
-            className="btn btn-primary btn-block btn-lg mb-4 mt-4 w-75 shadow-lg"
-            type="submit"
+          <form
+            onSubmit={ this.props.handleSubmit( this.onSubmit ) }
+            className="w-100 d-flex justify-content-center flex-column align-items-center"
           >
-            Set New Password
-          </button>
-        </form>
+            <h2> Set a New Password </h2>
+
+            <Field
+              name="email"
+              component={ this.renderInput }
+              label="E-mail Address"
+            />
+
+            <Field
+              name="password"
+              component={ this.renderInput }
+              label="Password"
+              className="mb-4 form-control w-75"
+            />
+
+            <button
+              className="btn btn-primary btn-block btn-lg mb-4 mt-4 w-75 shadow-lg"
+              type="submit"
+            >
+              Set New Password
+            </button>
+          </form>
+        </div>
       </div>
     )
   }

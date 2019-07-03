@@ -39,13 +39,15 @@ class SequenceEdit extends React.Component {
     }
 
     return(
-      <SequenceForm
-        pageTitle="Edit Sequence"
-        initialValues={ initialValues || this.props.sequence } //if user goes to edit initially, initialvalues is coming from api call to retrieve technique in db; however, if during the edit user decides to add more techs, add tech in seqform passes off seqid and edit boolean to seqref, which passes it onto buttongroup down to buttongroup add button, which tells the builder to send user back to edit page instead of create page with new initialValues and the api call does not get called again.
-        onSubmit={ this.onSubmit }
-        sequenceId={ this.props.match.params.sequenceid }
-        edit
-      />
+      <div className="container main min-vh-100 pt-3 pl-1 pr-1">
+        <SequenceForm
+          pageTitle="Edit Sequence"
+          initialValues={ initialValues || this.props.sequence } //if user goes to edit initially, initialvalues is coming from api call to retrieve technique in db; however, if during the edit user decides to add more techs, add tech in seqform passes off seqid and edit boolean to seqref, which passes it onto buttongroup down to buttongroup add button, which tells the builder to send user back to edit page instead of create page with new initialValues and the api call does not get called again.
+          onSubmit={ this.onSubmit }
+          sequenceId={ this.props.match.params.sequenceid }
+          edit
+        />
+      </div>
     )
   }
 }

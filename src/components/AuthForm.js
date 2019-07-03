@@ -32,73 +32,75 @@ class AuthForm extends React.Component {
     })
 
     return(
-      <div className="container-fluid pb-5 mb-5">
-        <form
-          onSubmit={ this.props.handleSubmit( this.onSubmit ) }
-          className="w-100 d-flex justify-content-center flex-column align-items-center"
-        >
-
-          <h2> { heading } </h2>
-
-          {
-            message &&
-            <MessagesDisplay message={ message } />
-          }
-          {
-            errors &&
-            <ErrorsDisplay errors={ errors } />
-          }
-          {
-            !signUp &&
-            <Field
-              name="user"
-              component={ AuthInput }
-              label="E-mail Address or Username"
-            />
-          }
-
-          {
-            signUp && (
-            <>
-              <Field
-                name="email"
-                component={ AuthInput }
-                label="E-mail Address"
-                type="email"
-              />
-            
-              <Field
-                name="username"
-                component={ AuthInput }
-                label="Username"
-                type="text"
-              />
-            </>
-          )
-          }
-
-          <Field
-            name="password"
-            component={ AuthInput }
-            label="Password"
-            className="form-control w-75"
-            type="password"
-          />
-
-          {
-            !signUp &&
-            <Link className='btn btn-link' to="/passwordreset">
-              forgot password
-            </Link>
-          }
-
-          <button
-            className="btn btn-primary btn-block btn-lg mb-4 mt-4 w-75 shadow-lg"
-            type="submit"
+      <div className="container main min-vh-100 pt-3 pl-1 pr-1">
+        <div className="container-fluid pb-5 mb-5">
+          <form
+            onSubmit={ this.props.handleSubmit( this.onSubmit ) }
+            className="w-100 d-flex justify-content-center flex-column align-items-center pt-3"
           >
-            { buttonText }
-          </button>
-        </form>
+
+            <h2> { heading } </h2>
+
+            {
+              message &&
+              <MessagesDisplay message={ message } />
+            }
+            {
+              errors &&
+              <ErrorsDisplay errors={ errors } />
+            }
+            {
+              !signUp &&
+              <Field
+                name="user"
+                component={ AuthInput }
+                label="E-mail Address or Username"
+              />
+            }
+
+            {
+              signUp && (
+              <>
+                <Field
+                  name="email"
+                  component={ AuthInput }
+                  label="E-mail Address"
+                  type="email"
+                />
+              
+                <Field
+                  name="username"
+                  component={ AuthInput }
+                  label="Username"
+                  type="text"
+                />
+              </>
+            )
+            }
+
+            <Field
+              name="password"
+              component={ AuthInput }
+              label="Password"
+              className="form-control w-75"
+              type="password"
+            />
+
+            {
+              !signUp &&
+              <Link className='btn btn-link' to="/passwordreset">
+                forgot password
+              </Link>
+            }
+
+            <button
+              className="btn btn-primary mb-4 mt-4 w-50 shadow-lg"
+              type="submit"
+            >
+              { buttonText }
+            </button>
+          </form>
+        </div>
       </div>
     );
   }

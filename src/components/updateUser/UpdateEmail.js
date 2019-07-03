@@ -4,10 +4,12 @@ import UpdateUserForm from './UpdateUserForm';
 const UpdateEmail = () => {
 
   return(
-    <UpdateUserForm
-      heading='Update Email'
-      item="email"
-    />
+    <div className="container main min-vh-100 pt-3 pl-1 pr-1">
+      <UpdateUserForm
+        heading='Update Email'
+        item="email"
+      />
+    </div>
   )
 }
 

@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
   return(
-    <div className="container-fluid w-100 p-0 pt-5 m-1 mt-5">
+    <div className="container-fluid p-0 pt-5">
       <div className="pr-1 pl-1">
         Icons made by -
         <Link 

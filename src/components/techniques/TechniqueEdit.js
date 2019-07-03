@@ -27,12 +27,14 @@ class TechniqueEdit extends React.Component {
     }
 
     return (
-      <TechniqueForm
-        pageTitle="Edit Technique"
-        initialValues={ this.props.techniques }
-        onSubmit={ this.onSubmit }
-        techId={ this.props.match.params.techid }
-      />
+      <div className="container main min-vh-100 pt-3 pl-1 pr-1">
+        <TechniqueForm
+          pageTitle="Edit Technique"
+          initialValues={ this.props.techniques }
+          onSubmit={ this.onSubmit }
+          techId={ this.props.match.params.techid }
+        />
+      </div>
     );
   }
 }

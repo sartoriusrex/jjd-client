@@ -13,7 +13,7 @@ class Navbar extends React.Component {
     return(
       <nav className="navbar fixed-top navbar-expand-sm navbar-dark bg-primary d-flex justify-content-between">
 
-        <Link to="/" className="navbar-brand">
+        <Link to="/" className="navbar-brand d-sm-none">
           <h4 className="mb-0">JJD</h4>
         </Link>
 

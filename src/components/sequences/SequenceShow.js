@@ -42,7 +42,7 @@ class SequenceShow extends React.Component {
     const { userId, isAuthenticated } = this.props;
 
     return(
-      <>
+      <div className="container main min-vh-100 pt-3 pl-1 pr-1">
         <div className="d-flex justify-content-between align-items-baseline w-100 mb-4 pb-4">
 
           <div className="w-25 d-flex">
@@ -106,7 +106,7 @@ class SequenceShow extends React.Component {
           />
         </div>
 
-      </>
+      </div>
     )
   }
 }

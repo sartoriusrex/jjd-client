@@ -69,7 +69,7 @@ class UpdateUserForm extends React.Component {
 
 
           <button
-            className="btn btn-primary btn-block btn-lg mb-4 mt-4 w-75 shadow-lg"
+            className="btn btn-primary w-50 mb-4 mt-4 shadow-lg"
             type="submit"
           >
             Submit Change

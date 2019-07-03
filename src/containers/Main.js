@@ -33,6 +33,8 @@ import SequenceDelete from "../components/sequences/SequenceDelete";
 import SequenceShow from "../components/sequences/SequenceShow";
 import SequenceIndex from "./SequenceIndex";
 
+import NoMatch from '../components/NoMatch';
+
 import { authUser } from "../store/actions/auth";
 import { removeError } from "../store/actions/errors";
 
@@ -40,135 +42,134 @@ import { removeError } from "../store/actions/errors";
 const Main = props => {
   const { errors, currentUser } = props;
   return(
-    <div className="container main min-vh-100 pt-3 pl-1 pr-1">
-      <Switch>
-        <Route exact path="/"
-          render={ () => <HomePage />} />
-        <Route exact path="/about"
-          render={ () => <AboutPage />}/>
-        <Route exact path="/faq"
-          render={ () => <FaqPage />} />
-        <Route exact path="/contribute"
-          render={ () => <ContributePage />} />
-        <Route exact path="/resources"
-          render={ () => <ResourcesPage />} />
+    <Switch>
+      <Route exact path="/"
+        render={ () => <HomePage />} />
+      <Route exact path="/about"
+        render={ () => <AboutPage />}/>
+      <Route exact path="/faq"
+        render={ () => <FaqPage />} />
+      <Route exact path="/contribute"
+        render={ () => <ContributePage />} />
+      <Route exact path="/resources"
+        render={ () => <ResourcesPage />} />
 
-        {/* ========================== */}
-        {/* Auth and Account Management Pages */}
-        {/* ========================== */}
+      {/* ========================== */}
+      {/* Auth and Account Management Pages */}
+      {/* ========================== */}
 
-        <Route exact path="/users/:userid/manageaccount"
-          component={ withAuth( ManageAccountPage ) } />
-        <Route exact path="/users/:userid/update-username"
-          component={ withAuth( UpdateUsername ) } />
-        <Route exact path="/users/:userid/update-email"
-        component={ withAuth( UpdateEmail ) } />
-        <Route exact path="/users/:userid/update-password"
-        component={ withAuth( UpdatePassword ) } />
-        <Route exact path="/users/:userid/delete-account"
-        component={ withAuth( DeleteAccount ) } />
-        <Route exact  path="/signin" 
-          render={ props => {
-            return(
-              <AuthForm
-                errors={ errors }
-                buttonText="Log in now"
-                heading="Welcome Back"
-                {...props}
-              />
-            )
-          }} 
-        />
-        <Route exact path="/signup"
-          render={props => {
-            return(
-              <AuthForm
-                errors={ errors }
-                signUp
-                buttonText="Sign up now"
-                heading="Make an Account"
-                {...props}
-              />
-            )
-          }}
-        />
-        <Route exact path="/passwordreset"
-          component={ RequestResetPasswordPage } />
-        <Route exact path="/resetpassword/:token"
-          component={ ResetPasswordTokenPage } />
-         <Route exact path="/verifyaccount/:accountVerificationToken"
-          component={ VerifyAccountTokenPage } />
+      <Route exact path="/users/:userid/manageaccount"
+        component={ withAuth( ManageAccountPage ) } />
+      <Route exact path="/users/:userid/update-username"
+        component={ withAuth( UpdateUsername ) } />
+      <Route exact path="/users/:userid/update-email"
+      component={ withAuth( UpdateEmail ) } />
+      <Route exact path="/users/:userid/update-password"
+      component={ withAuth( UpdatePassword ) } />
+      <Route exact path="/users/:userid/delete-account"
+      component={ withAuth( DeleteAccount ) } />
+      <Route exact  path="/signin" 
+        render={ props => {
+          return(
+            <AuthForm
+              errors={ errors }
+              buttonText="Log in now"
+              heading="Welcome Back"
+              {...props}
+            />
+          )
+        }} 
+      />
+      <Route exact path="/signup"
+        render={props => {
+          return(
+            <AuthForm
+              errors={ errors }
+              signUp
+              buttonText="Sign up now"
+              heading="Make an Account"
+              {...props}
+            />
+          )
+        }}
+      />
+      <Route exact path="/passwordreset"
+        component={ RequestResetPasswordPage } />
+      <Route exact path="/resetpassword/:token"
+        component={ ResetPasswordTokenPage } />
+        <Route exact path="/verifyaccount/:accountVerificationToken"
+        component={ VerifyAccountTokenPage } />
 
-        {/* ====================== */}
-        {/* Index pages */}
-        {/* ====================== */}
+      {/* ====================== */}
+      {/* Index pages */}
+      {/* ====================== */}
 
-        <Route exact path="/techniques/all"
-          render={ props => {
-            let search;
-            if( !props.history.location.state ) {
-              search=""
-            } else {
-              search = props.history.location.state.search.search
-            }
+      <Route exact path="/techniques/all"
+        render={ props => {
+          let search;
+          if( !props.history.location.state ) {
+            search=""
+          } else {
+            search = props.history.location.state.search.search
+          }
 
-            return(
-              <TechniqueIndex 
-                errors={ errors }
-                currentUser={ currentUser }
-                search={ search }
-              />
-            );
-          }}
-        />
-        <Route exact path="/sequences/all"
-          render={ props => {
-            let search;
-            if( !props.history.location.state ) {
-              search=""
-            } else {
-              search = props.history.location.state.search.search
-            }
+          return(
+            <TechniqueIndex 
+              errors={ errors }
+              currentUser={ currentUser }
+              search={ search }
+            />
+          );
+        }}
+      />
+      <Route exact path="/sequences/all"
+        render={ props => {
+          let search;
+          if( !props.history.location.state ) {
+            search=""
+          } else {
+            search = props.history.location.state.search.search
+          }
 
-            return(
-              <SequenceIndex 
-                errors={ errors }
-                currentUser={ currentUser }
-                search={ search }
-              />
-            );
-          }}
-        />
+          return(
+            <SequenceIndex 
+              errors={ errors }
+              currentUser={ currentUser }
+              search={ search }
+            />
+          );
+        }}
+      />
 
-        {/* ========================== */}
-        {/* Technique Pages */}
-        {/* ========================== */}
+      {/* ========================== */}
+      {/* Technique Pages */}
+      {/* ========================== */}
 
-        <Route exact path="/users/:userid/techniques/new"
-          component={ withAuth( TechniqueCreate )} />
-        <Route exact path="/users/:userid/techniques/:techid/edit"
-          component={ withAuth( TechniqueEdit )} />
-        <Route exact path="/users/:userid/techniques/addRef/:techid"
-          component={ withAuth( TechniqueAddRefPage )} />
-        <Route exact path="/users/:userid/techniques/:techid/delete"
-          component={ withAuth( TechniqueDelete )} />
-        <Route exact path="/techniques/:techid"
-          component={ TechniqueShow } />
+      <Route exact path="/users/:userid/techniques/new"
+        component={ withAuth( TechniqueCreate )} />
+      <Route exact path="/users/:userid/techniques/:techid/edit"
+        component={ withAuth( TechniqueEdit )} />
+      <Route exact path="/users/:userid/techniques/addRef/:techid"
+        component={ withAuth( TechniqueAddRefPage )} />
+      <Route exact path="/users/:userid/techniques/:techid/delete"
+        component={ withAuth( TechniqueDelete )} />
+      <Route exact path="/techniques/:techid"
+        component={ TechniqueShow } />
 
-        {/* ========================== */}
-        {/* Sequence Pages */}
-        {/* ========================== */}
+      {/* ========================== */}
+      {/* Sequence Pages */}
+      {/* ========================== */}
 
-        <Route exact path="/users/:userid/sequences/new"
-          component={ withAuth( SequenceCreate )} />
-        <Route exact path="/users/:userid/sequences/:sequenceid/edit"
-          component={ withAuth( SequenceEdit )} />
-        <Route exact path="/users/:userid/sequences/:sequenceid/delete"
-          component={ withAuth( SequenceDelete )} />
-        <Route exact path="/sequences/:sequenceid"
-          component={ SequenceShow } />
-      </Switch>
-    </div> 
+      <Route exact path="/users/:userid/sequences/new"
+        component={ withAuth( SequenceCreate )} />
+      <Route exact path="/users/:userid/sequences/:sequenceid/edit"
+        component={ withAuth( SequenceEdit )} />
+      <Route exact path="/users/:userid/sequences/:sequenceid/delete"
+        component={ withAuth( SequenceDelete )} />
+      <Route exact path="/sequences/:sequenceid"
+        component={ SequenceShow } />
+      <Route component={ NoMatch } />
+    </Switch>
   )
 }
 

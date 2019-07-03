@@ -34,40 +34,42 @@ class RequestResetPasswordPage extends React.Component {
     })
 
     return(
-      <div
-        className="container-fluid d-flex justify-content-start align-items-center flex-column pt-4 pb-4"
-      >
-        {
-          message &&
-          <MessagesDisplay message={ message } />
-        }
-        {
-          errors &&
-          <ErrorsDisplay errors={ errors } />
-        }
-
-        <h2
-          className="pt-4 pb-4"
+      <div className="container main min-vh-100 pt-3 pl-1 pr-1">
+        <div
+          className="container-fluid d-flex justify-content-start align-items-center flex-column pt-4 pb-4"
         >
-          Reset Password
-        </h2>
+          {
+            message &&
+            <MessagesDisplay message={ message } />
+          }
+          {
+            errors &&
+            <ErrorsDisplay errors={ errors } />
+          }
 
-        <form
-          className="container-fluid d-flex flex-column align-items-center p-0 w-100"
-          onSubmit={ this.props.handleSubmit( this.onSubmit )}
-        >
-          <Field
-            name="email"
-            component={ EmailInput }
-            label="e-mail"
-            renderError={ renderError }
-          />
-          <button 
-            className="btn btn-primary w-25 shadow-lg"
+          <h2
+            className="pt-4 pb-4"
           >
             Reset Password
-          </button>
-        </form>
+          </h2>
+
+          <form
+            className="container-fluid d-flex flex-column align-items-center p-0 w-100"
+            onSubmit={ this.props.handleSubmit( this.onSubmit )}
+          >
+            <Field
+              name="email"
+              component={ EmailInput }
+              label="e-mail"
+              renderError={ renderError }
+            />
+            <button 
+              className="btn btn-primary w-25 shadow-lg"
+            >
+              Reset Password
+            </button>
+          </form>
+        </div>
       </div>
     )
   }
