@@ -13,13 +13,13 @@ class Navbar extends React.Component {
     return(
       <nav className="navbar fixed-top navbar-expand-sm navbar-dark bg-primary d-flex justify-content-between">
 
-        <Link to="/" className="navbar-brand d-sm-none">
-          <h4 className="mb-0">JJD</h4>
-        </Link>
-
         <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span className="navbar-toggler-icon"></span>
         </button>
+
+        <Link to="/" className="navbar-brand d-sm-none">
+          <h4 className="mb-0">JJD</h4>
+        </Link>
 
         <div className="collapse navbar-collapse" id="navbarNav">
           <div className="container-fluid d-flex justify-content-between pl-0 pr-0">
@@ -30,6 +30,9 @@ class Navbar extends React.Component {
                   Jiu Jitsu Distilled
                 </Link>
                 <div className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                  <Link to="/" className="dropdown-item">
+                    Home
+                  </Link>
                   <Link className="dropdown-item" to="/about">
                     About
                   </Link>
@@ -94,6 +97,7 @@ class Navbar extends React.Component {
           }
           </div>
         </div>
+
       </nav>
     )
   }
