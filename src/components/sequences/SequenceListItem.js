@@ -34,7 +34,7 @@ const SequenceListItem = (
           <Thumbnail thumbnail={ thumbnail } />
 
           <div
-            className="btn text-left pl-4"
+            className="btn text-left pl-4 w-75"
           >
             <h6 className="card-title">{ name }</h6>
             <div>
