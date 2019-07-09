@@ -11,6 +11,10 @@ import ButtonGroup from '../ButtonGroup';
 
 
 class SequenceShow extends React.Component {
+  state = {
+    sequenceButtonState: "active",
+    descriptionButtonState: "inactive"
+  }
 
   componentDidMount(){
     let { showSequence } = this.props;
@@ -19,9 +23,20 @@ class SequenceShow extends React.Component {
     showSequence( sequenceid )
   }
 
-  handleNav( e, text ) {
+  handleNav( e ) {
     e.stopPropagation();
-    
+  }
+
+  updateActiveState = ( text ) => {
+    if( text === "sequence" ){
+      this.state.sequenceButtonState === "active" ? 
+      this.setState({ sequenceButtonState: "inactive" }) :
+      this.setState({ sequenceButtonState: "active" })
+    } else {
+      this.state.descriptionButtonState === "active" ?
+      this.setState({ descriptionButtonState: "inactive" }) :
+      this.setState({ descriptionButtonState: "active" })
+    }
   }
 
   render(){
@@ -40,6 +55,20 @@ class SequenceShow extends React.Component {
     const { name, _id, user, description, notes, techniques } = this.props.sequence;
 
     const { userId, isAuthenticated } = this.props;
+
+    let buttonStyleActive = "btn w-50 border-info border-top-0 border-left-0 border-right-0 rounded-0";
+    let buttonStyleInactive = "btn w-50 border-0 rounded-0"
+    let buttonStyleSequence;
+    let buttonStyleDescription;
+    
+    this.state.sequenceButtonState === "active" ?
+    buttonStyleSequence = buttonStyleActive :
+    buttonStyleSequence = buttonStyleInactive;
+
+    this.state.descriptionButtonState === "active" ?
+    buttonStyleDescription = buttonStyleActive :
+    buttonStyleDescription = buttonStyleInactive;
+
 
     return(
       <div className="container main min-vh-100 pt-3 pl-1 pr-1">
@@ -71,23 +100,29 @@ class SequenceShow extends React.Component {
         </div>
 
         <div
-          className="btn-group d-flex justify-content-between mb-2 border-bottom border-info"
+          className="btn-group d-flex justify-content-between mb-2 border-info"
           role="group"
           aria-label="Sequences and Descriptions"
         >
           <button 
             type="button" 
-            className="btn w-50"
+            className={ buttonStyleSequence }
             data-toggle="collapse" data-target="#sequence" aria-expanded="false" aria-controls="sequence"
-            onClick={ ( e ) => this.handleNav( e, "Sequence" ) }
+            onClick={ ( e ) => {
+              this.updateActiveState('sequence');
+              this.handleNav( e );
+            }}
           >
               Sequence
           </button>
           <button 
             type="button" 
-            className="btn w-50"
+            className={ buttonStyleDescription }
             data-toggle="collapse" data-target="#description" aria-expanded="false" aria-controls="description"
-            onClick={ ( e ) => this.handleNav( e, "Description" ) }
+            onClick={ ( e ) => {
+              this.updateActiveState('description');
+              this.handleNav( e );
+            }}
           >
               Description & Notes
           </button>
