@@ -34,7 +34,10 @@ class SequenceBuilder extends React.Component{
     const { isAuthenticated, sequenceToBuild } = this.props;
 
     // To view Sequence Builder must 1) be logged in AND 2) there must be techniques pushed to be built
-    if( !isAuthenticated || sequenceToBuild.techniques.length === 0 ){
+    if( !isAuthenticated || (
+      sequenceToBuild.techniques.length === 0 &&
+      sequenceToBuild.name === ""
+      )){
       return <></>
     }
 

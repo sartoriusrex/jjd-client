@@ -5,5 +5,9 @@ $green:           #1a702e !default;
 $gray-300:        #6c7783 !default;
 $font-size-base:    .875rem !default;
 
+$font-family-sans-serif:      "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !default;
+
+
+
 // Any modifications to global styles must come before this import link below
 @import '~bootstrap/scss/bootstrap.scss';

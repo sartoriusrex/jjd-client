@@ -5,7 +5,7 @@ export const capitalizeFirstLetter = string => (string.charAt(0).toUpperCase() +
 export const renderError = ({ error, touched }) => {
   if( touched && error ) {
     return (
-      <div className="alert alert-danger p-1 m-0">{ error }</div> 
+      <div className="border border-danger text-danger rounded p-1 m-1">{ error }</div> 
     );
   }
 }

@@ -38,7 +38,7 @@ class HomePage extends React.Component{
         }
         </div>
 
-        <h1 className="mt-5 text-primary ">
+        <h1 className="mt-5 p-0 text-primary title">
           Jiu Jitsu Distilled
         </h1>
 

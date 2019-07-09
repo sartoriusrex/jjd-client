@@ -5,6 +5,9 @@ import { fetchSequences, fetchSequencesByMe } from "../store/actions/sequences";
 
 
 class ListTabNav extends React.Component {
+  state = {
+    active: "all"
+  }
 
   fetchAll = () => {
     let { to, fetchTechniques, fetchSequences } = this.props;
@@ -26,22 +29,30 @@ class ListTabNav extends React.Component {
     }
   };
 
+  updateActiveState = ( button ) => {
+    this.setState({ active: button })
+  }
+
   render(){
     const { isAuthenticated, user } = this.props.currentUser;
     const { to } = this.props;
-
-    let classStyle = "btn-group d-flex justify-content-center mb-2 border-bottom border-primary";
+    let classActive = "btn border-bottom";
+    let classInactive = "btn";
+    let barClassStyle = "btn-group d-flex justify-content-center mb-2";
 
     if( to === "Sequence" ){
-      classStyle = "btn-group d-flex justify-content-center mb-2 border-bottom border-info";
+      barClassStyle = "btn-group d-flex justify-content-center mb-2 border-info";
     }
 
     return(
-      <div className={ classStyle }>
+      <div className={ barClassStyle }>
 
         <button 
-          className="btn"
-          onClick={ this.fetchAll }
+          className={ this.state.active === "all" ? classActive : classInactive }
+          onClick={ () => { 
+            this.updateActiveState('all');
+            this.fetchAll() 
+          } }
         >
           All
         </button>
@@ -50,8 +61,9 @@ class ListTabNav extends React.Component {
           isAuthenticated &&
           <>
             <button 
-              className="btn"
+              className={ this.state.active === "own" ? classActive : classInactive }
               onClick={ () => {
+                this.updateActiveState("own");
                 if( this.props.to === "Technique" ) {
                   this.fetchOwn( to, user.techniques );
                 } else {
@@ -63,8 +75,9 @@ class ListTabNav extends React.Component {
             </button>
 
             <button 
-              className="btn"
+              className={ this.state.active === "liked" ? classActive : classInactive }
               onClick={ () => {
+                this.updateActiveState("liked");
                 if( this.props.to === "Technique" ) {
                   this.fetchOwn( to, user.likedTechs );
                 } else {

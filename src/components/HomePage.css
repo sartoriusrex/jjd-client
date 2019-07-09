@@ -1,3 +1,8 @@
 .cover {
   background: top /cover no-repeat url('../images/cover.png')
 }
+
+.title {
+  background: radial-gradient(rgba(231, 237, 252, 0.8), rgba(255, 255, 255, 0));
+  border-radius: 5rem;
+}
