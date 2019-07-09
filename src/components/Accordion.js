@@ -4,6 +4,14 @@ import { ReactComponent as BarMenu } from '../icons/button_menu.svg';
 import "./ButtonGroup.css"
 
 const Accordion = ({ buttonText, theArray, renderArray, id, arrayItemTitle }) => {
+  if( theArray.length === 0 ) {
+    return (
+      <div className="card-header bg-transparent border-left-0 border-right-0 border-bottom-0 border-top border-dark text-center rounded-0 p-0">
+        <small className="px-1">No { buttonText }</small>
+      </div>
+    );
+  }
+
   return(
     <div className="accordion" id={ id }>
       <div className="card border-0 bg-transparent">
