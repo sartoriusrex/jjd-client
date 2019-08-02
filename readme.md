@@ -1,6 +1,6 @@
-#Jiu Jitsu Distilled Version 1.0.0
+# Jiu Jitsu Distilled Version 1.0.0
 
-license: MIT
+# license: MIT
 
 ## Updated 02/08/2019
 
@@ -51,9 +51,10 @@ This is a personal project CRUD app that allows users to document Brazilian Jiu 
 ### Known Bugs and Necessary Refactors:
 
 1.  Current manner of adding entries and reactions in technique editting is by actual technique update and api call to server. Need to refactor to store initial values in separate object for importing each time TechForm is rendered. This type of update also resets the form on reload.
-  * This method is currently in use with Sequences, but is buggy and produces an error where inputs are changing from controlled to uncontrolled - need to research more on how to fix this
-3.  Currently the only method of verifying if an e-mail address is deliverable is by attempting to send an email using mailgun-js. Their paid version offers its own functionality to verify instead of attempting to deliver. This is one option or I need to research another option of server-side email deliverability verification.
-4.  Current method of keeping techs and seqs when users are deleted is by reassigning techs and seqs to an established user named Delete. This method works but is not ideal. Need to research other ways to keep information while respecting users desire to delete their accounts.
-5.  TechniqueForm always reloads previous values after loading a technique. Initial values need to be reset; however, the manner in which this is done isn't compatible with the manner in which technique refs are added. This is a major refactor related to Refactor #1.
-6. Bootstrap js files currently imported in index - will refactor app to not use external js files.
+   
+	 * This method is currently in use with Sequences, but is buggy and produces an error where inputs are changing from controlled to uncontrolled - need to research more on how to fix this
+2.  Currently the only method of verifying if an e-mail address is deliverable is by attempting to send an email using mailgun-js. Their paid version offers its own functionality to verify instead of attempting to deliver. This is one option or I need to research another option of server-side email deliverability verification.
+3.  Current method of keeping techs and seqs when users are deleted is by reassigning techs and seqs to an established user named Delete. This method works but is not ideal. Need to research other ways to keep information while respecting users desire to delete their accounts.
+4.  TechniqueForm always reloads previous values after loading a technique. Initial values need to be reset; however, the manner in which this is done isn't compatible with the manner in which technique refs are added. This is a major refactor related to Refactor #1.
+5. Bootstrap js files currently imported in index - will refactor app to not use external js files.
 
