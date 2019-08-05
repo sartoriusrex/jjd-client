@@ -33,7 +33,7 @@ class AuthForm extends React.Component {
 
     return(
       <div className="container main min-vh-100 pt-3 pl-1 pr-1">
-        <div className="container-fluid pb-5 mb-5">
+        <div className="container-fluid pb-5 mb-5 mt-5">
           <form
             onSubmit={ this.props.handleSubmit( this.onSubmit ) }
             className="w-100 d-flex justify-content-center flex-column align-items-center pt-3"

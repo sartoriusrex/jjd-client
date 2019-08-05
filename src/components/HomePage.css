@@ -6,3 +6,15 @@
   background: radial-gradient(rgba(231, 237, 252, 0.8), rgba(255, 255, 255, 0));
   border-radius: 5rem;
 }
+
+@media screen and (max-width: 800px) {
+  .cover {
+    background: top /cover no-repeat url('../images/cover-md.png');
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .cover {
+    background: top /cover no-repeat url('../images/cover-sm.png');
+  }
+}
