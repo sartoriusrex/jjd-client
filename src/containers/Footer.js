@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
   return(
-    <div className="container-fluid p-0 pt-5">
-      <div className="pr-1 pl-1">
+    <div className="container-fluid p-0 pt-5 text-center">
+      <small className="pr-1 pl-1">
         Icons made by -
         <Link 
           to="https://www.flaticon.com/authors/google" title="Google">
@@ -23,7 +23,7 @@ const Footer = () => {
           target="_blank">
           CC 3.0 BY 
         </Link>
-      </div>
+      </small>
     </div>
   )
 }
