@@ -19,12 +19,12 @@ class ShareItem extends React.Component {
 
 		return(
 			<div
-				className="container share-modal"
+				className="share-modal"
 				onClick={ () => updateShareState({}) }
 			>
 				<form 
 					onSubmit={ () => updateShareState({}) }
-					className="w-100 d-flex flex-column justify-content-center align-items-center p-2 rounded share-form"
+					className="share-form"
 					onClick={ e => e.stopPropagation() }
 				>
 					<p className="text-light text-center mb-1">Share </p>

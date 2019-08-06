@@ -5,6 +5,7 @@ import ButtonGroupAddButton from './ButtonGroupAddButton';
 import ButtonGroupHeartButtons from './ButtonGroupHeartButtons';
 import ButtonGroupAuthorizedActionButtons from './ButtonGroupAuthorizedActionButtons';
 import { ReactComponent as DotMenu } from '../icons/button_menu_vertical_dots.svg';
+import ShareItem from './ShareItem';
 import "./ButtonGroup.css"
 
 import { isTechLiked, isSeqLiked, handleTechLike, handleSeqLike, handleSeq } from './ButtonGroupFunctions';
@@ -29,6 +30,7 @@ class ButtonGroup extends React.Component{
       addToSeq, 
       updateLikes,
       updateShareState,
+      shareState,
       dropdownStyle="btn-group-vertical dropleft" } = this.props;
 
     const techsInSeq = sequenceRefs.techniques;
@@ -100,21 +102,26 @@ class ButtonGroup extends React.Component{
           }
           <button
             className="dropdown-item border-0 text-light"
-            onClick={ () => {
-              console.log(seqName)
+            onClick={ () => 
               updateShareState({ 
                 techId, 
                 seqId, 
                 techName, 
                 seqName, 
                 action: "share"
-              })}
+              })
             }
           >
             Share
           </button>
         </div>
-
+        { 
+          ( 
+            ( shareState.techName && shareState.techId === techId ) ||
+            ( shareState.seqName && shareState.seqId === seqId )
+          )
+          && <ShareItem />
+        }
       </div>
     )
   }
@@ -127,6 +134,7 @@ function mapStateToProps( state ){
     userId: state.currentUser.user.id,
     isAuthenticated: state.currentUser.isAuthenticated,
     sequenceRefs: state.sequenceRefs,
+    shareState: state.shareState,
   };
 }
 
