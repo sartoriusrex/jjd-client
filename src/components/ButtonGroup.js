@@ -9,7 +9,7 @@ import "./ButtonGroup.css"
 
 import { isTechLiked, isSeqLiked, handleTechLike, handleSeqLike, handleSeq } from './ButtonGroupFunctions';
 
-import { updateLikes, handleShare } from '../store/actions/auth';
+import { updateLikes, updateShareState } from '../store/actions/auth';
 import { addToSeq } from '../store/actions/sequenceRefs';
 
 
@@ -24,12 +24,11 @@ class ButtonGroup extends React.Component{
       likedTechs,
       likedSeqs, 
       userId, 
-      username, 
       isCorrectUser, 
       sequenceRefs, 
       addToSeq, 
       updateLikes,
-      handleShare,
+      updateShareState,
       dropdownStyle="btn-group-vertical dropleft" } = this.props;
 
     const techsInSeq = sequenceRefs.techniques;
@@ -102,8 +101,7 @@ class ButtonGroup extends React.Component{
           <button
             className="dropdown-item border-0 text-light"
             onClick={ () => 
-              handleShare({ 
-                username, 
+              updateShareState({ 
                 techId, 
                 seqId, 
                 techName, 
@@ -126,10 +124,9 @@ function mapStateToProps( state ){
     likedTechs: state.currentUser.user.likedTechs,
     likedSeqs: state.currentUser.user.likedSeqs,
     userId: state.currentUser.user.id,
-    username: state.currentUser.user.username,
     isAuthenticated: state.currentUser.isAuthenticated,
     sequenceRefs: state.sequenceRefs,
   };
 }
 
-export default connect( mapStateToProps, { updateLikes, addToSeq, handleShare } )( ButtonGroup );
+export default connect( mapStateToProps, { updateLikes, addToSeq, updateShareState } )( ButtonGroup );

@@ -131,14 +131,6 @@ export const updateLikes = ( newLikes, to ) => ( dispatch, getState ) => {
   );
 }
 
-export const handleShare = shareInfo => dispatch => {
-  if ( shareInfo.action === "share" ) {
-    dispatch( updateShareState( shareInfo ) );
-  } else {
-    dispatch( updateShareState( {} ) );
-  }
-}
-
 export const updateShareState = shareInfo => ({
   type: UPDATE_SHARE_STATE,
   shareInfo

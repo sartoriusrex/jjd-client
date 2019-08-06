@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Field, reduxForm } from 'redux-form';
 
+import { updateShareState } from "../store/actions/auth";
 import { renderError } from './FormValidations';
 import EmailInput from './EmailInput';
 import './ShareItem.css';
@@ -9,20 +10,20 @@ import './ShareItem.css';
 
 class ShareItem extends React.Component {
 
-	handleShare = () => {
-
-	}
-
 	render(){
-		const { item } = this.props;
+		const { shareState, updateShareState } = this.props;
+
+		if( shareState.action !== "share" ) {
+			return <></>
+		}
 
 		return(
 			<div className="container share-modal">
 				<form 
-					onSubmit={ this.handleShare }
+					onSubmit={ updateShareState }
 					className="w-100 d-flex flex-column justify-content-center align-items-center p-2 rounded share-form"
 				>
-					<p className="text-light">Share { item } with</p>
+					<p className="text-light">Share { shareState.techName || shareState.seqName } with</p>
 					<Field 
 						name="email"
 						component={ EmailInput }
@@ -40,8 +41,15 @@ class ShareItem extends React.Component {
 	}
 }
 
+function mapStateToProps( state ){
+  return {
+    username: state.currentUser.user.username,
+		shareState: state.shareState
+  };
+}
+
 const wrappedForm = reduxForm({
   form: 'shareItem',
 })( ShareItem )
 
-export default connect( null, {})( wrappedForm );
+export default connect( mapStateToProps, { updateShareState })( wrappedForm );
