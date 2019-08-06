@@ -7,23 +7,16 @@ import ButtonGroupAuthorizedActionButtons from './ButtonGroupAuthorizedActionBut
 import { ReactComponent as DotMenu } from '../icons/button_menu_vertical_dots.svg';
 import "./ButtonGroup.css"
 
-import { isTechLiked, isSeqLiked, handleTechLike, handleSeqLike, handleSeq, 
-  // handleShare //Will handle share in next phase
-} from './ButtonGroupFunctions';
+import { isTechLiked, isSeqLiked, handleTechLike, handleSeqLike, handleSeq } from './ButtonGroupFunctions';
 
-import { updateLikes } from '../store/actions/auth';
+import { updateLikes, handleShare } from '../store/actions/auth';
 import { addToSeq } from '../store/actions/sequenceRefs';
 
 
 class ButtonGroup extends React.Component{
-
-  handleShare = ( username, techID ) => {
-    
-  }
-
   render() {
 
-    const { seqId, techId, techName, techThumb, likedTechs, likedSeqs, userId, username, isCorrectUser, sequenceRefs, addToSeq, updateLikes, dropdownStyle="btn-group-vertical dropleft" } = this.props;
+    const { seqId, techId, techName, seqName, techThumb, likedTechs, likedSeqs, userId, username, isCorrectUser, sequenceRefs, addToSeq, updateLikes, dropdownStyle="btn-group-vertical dropleft" } = this.props;
 
     const techsInSeq = sequenceRefs.techniques;
 
@@ -95,11 +88,16 @@ class ButtonGroup extends React.Component{
           {/* Sharing Function Currently in next phase */}
             <button
               className="dropdown-item border-0 text-light"
-              onClick={ () => this.handleShare( username, techId ) }
+              onClick={ () => handleShare({
+                username,
+                techId,
+                seqId,
+                techName,
+                seqName
+              })}
             >
               Share
             </button>
-
         </div>
 
       </div>
@@ -118,4 +116,4 @@ function mapStateToProps( state ){
   };
 }
 
-export default connect( mapStateToProps, { updateLikes, addToSeq } )( ButtonGroup );
+export default connect( mapStateToProps, { updateLikes, addToSeq, handleShare } )( ButtonGroup );

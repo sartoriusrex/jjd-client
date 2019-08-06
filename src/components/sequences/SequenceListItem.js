@@ -53,6 +53,7 @@ const SequenceListItem = (
           <ButtonGroup
             seqId={ seqId }
             isCorrectUser={ isCorrectUser }
+            seqName={ name }
           />
         }
 

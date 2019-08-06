@@ -1,0 +1,30 @@
+.share-modal {
+	position: absolute;
+	top: 0;
+	right: 0;
+	background-color: transparent;
+	z-index: 10000;
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	margin: 0;
+	padding: 0;
+	display: none;
+}
+
+.share-form {
+	background-color: rgba(15,15,15,.9);
+	max-width: 400px;
+}
+
+@media screen and (min-width: 650px) {
+	.share-modal {
+
+	}
+
+	.share-form {
+
+	}
+}
