@@ -131,14 +131,16 @@ export const updateLikes = ( newLikes, to ) => ( dispatch, getState ) => {
   );
 }
 
+export const handleShare = shareInfo => dispatch => {
+  dispatch( updateShareState( shareInfo.display ) )
+  console.log( shareInfo );
+}
+
 export const updateShareState = display => ({
   type: UPDATE_SHARE_STATE,
-  action: display
+  display
 })
 
-export const handleShare = ({ username, techId, seqId, techName, seqName }) => dispatch => {
-  dispatch( updateShareState({ display: "flex" }))
-}
 
 export const shareItem = ( techId, username, formValues ) => dispatch => {
   let email = formValues.email;

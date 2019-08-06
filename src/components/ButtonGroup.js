@@ -15,8 +15,22 @@ import { addToSeq } from '../store/actions/sequenceRefs';
 
 class ButtonGroup extends React.Component{
   render() {
-
-    const { seqId, techId, techName, seqName, techThumb, likedTechs, likedSeqs, userId, username, isCorrectUser, sequenceRefs, addToSeq, updateLikes, dropdownStyle="btn-group-vertical dropleft" } = this.props;
+    const { 
+      seqId, 
+      techId, 
+      techName, 
+      seqName, 
+      techThumb, 
+      likedTechs,
+      likedSeqs, 
+      userId, 
+      username, 
+      isCorrectUser, 
+      sequenceRefs, 
+      addToSeq, 
+      updateLikes,
+      handleShare,
+      dropdownStyle="btn-group-vertical dropleft" } = this.props;
 
     const techsInSeq = sequenceRefs.techniques;
 
@@ -85,19 +99,14 @@ class ButtonGroup extends React.Component{
               />
             )
           }
-          {/* Sharing Function Currently in next phase */}
-            <button
-              className="dropdown-item border-0 text-light"
-              onClick={ () => handleShare({
-                username,
-                techId,
-                seqId,
-                techName,
-                seqName
-              })}
-            >
-              Share
-            </button>
+          <button
+            className="dropdown-item border-0 text-light"
+            onClick={ () => 
+              handleShare({ username, techId, seqId, techName, seqName, display: "flex" })
+            }
+          >
+            Share
+          </button>
         </div>
 
       </div>
@@ -110,7 +119,7 @@ function mapStateToProps( state ){
     likedTechs: state.currentUser.user.likedTechs,
     likedSeqs: state.currentUser.user.likedSeqs,
     userId: state.currentUser.user.id,
-    username: state.currentUser.username,
+    username: state.currentUser.user.username,
     isAuthenticated: state.currentUser.isAuthenticated,
     sequenceRefs: state.sequenceRefs,
   };
