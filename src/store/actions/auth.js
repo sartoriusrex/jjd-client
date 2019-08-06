@@ -131,6 +131,24 @@ export const updateLikes = ( newLikes, to ) => ( dispatch, getState ) => {
   );
 }
 
+export const shareItem = ( techId, username, formValues ) => dispatch => {
+  let email = formValues.email;
+
+  return (
+    apiCall(
+      "post",
+      "api/share",
+      { techId, username, email }
+    )
+    .then( res => dispatch(
+      sendMessage( res )
+    ))
+    .catch( err => dispatch(
+      addError( err.message )
+    ))
+  )
+}
+
 export const sendResetPasswordEmail = formValues => dispatch => {
   dispatch( reset( 'resetPassword' ) );
   // Dispatch redux-form action to reset resetPassword form

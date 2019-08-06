@@ -6,6 +6,7 @@ import jwtDecode from "jwt-decode";
 
 import Navbar from "./Navbar";
 import Main from "./Main";
+import ShareItem from "../components/ShareItem";
 import SequenceBuilder from "../components/sequences/SequenceBuilder";
 import Footer from "./Footer";
 import history from '../history';
@@ -29,6 +30,7 @@ const App = () => (
         <Navbar />
         <div className="pt-5">
           <Main />
+          <ShareItem />
           <SequenceBuilder />
         </div>
         <Footer />

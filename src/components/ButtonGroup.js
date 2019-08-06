@@ -17,9 +17,13 @@ import { addToSeq } from '../store/actions/sequenceRefs';
 
 class ButtonGroup extends React.Component{
 
+  handleShare = ( username, techID ) => {
+    
+  }
+
   render() {
 
-    const { seqId, techId, techName, techThumb, likedTechs, likedSeqs, userId, isCorrectUser, sequenceRefs, addToSeq, updateLikes, dropdownStyle="btn-group-vertical dropleft" } = this.props;
+    const { seqId, techId, techName, techThumb, likedTechs, likedSeqs, userId, username, isCorrectUser, sequenceRefs, addToSeq, updateLikes, dropdownStyle="btn-group-vertical dropleft" } = this.props;
 
     const techsInSeq = sequenceRefs.techniques;
 
@@ -89,12 +93,12 @@ class ButtonGroup extends React.Component{
             )
           }
           {/* Sharing Function Currently in next phase */}
-            {/* <button
+            <button
               className="dropdown-item border-0 text-light"
-              onClick={ () => handleShare() }
+              onClick={ () => this.handleShare( username, techId ) }
             >
               Share
-            </button> */}
+            </button>
 
         </div>
 

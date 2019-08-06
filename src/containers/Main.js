@@ -74,7 +74,7 @@ const Main = props => {
             <AuthForm
               errors={ errors }
               buttonText="Log in now"
-              heading="Welcome Back"
+              heading="Login"
               {...props}
             />
           )
@@ -87,7 +87,7 @@ const Main = props => {
               errors={ errors }
               signUp
               buttonText="Sign up now"
-              heading="Make an Account"
+              heading="Sign up"
               {...props}
             />
           )
