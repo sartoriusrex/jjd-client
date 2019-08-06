@@ -10,6 +10,21 @@ import './ShareItem.css';
 
 class ShareItem extends React.Component {
 
+	onSubmit = formValues => {
+		const { shareState, updateShareState, username, shareItem } = this.props;
+		let delivery = {};
+
+		delivery.email = formValues.email;
+		delivery.techName = shareState.techName;
+		delivery.techId = shareState.techId;
+		delivery.seqName = shareState.seqName;
+		delivery.seqId = shareState.seqId;
+		delivery.username = username;
+
+		shareItem( delivery );
+		updateShareState({});
+	}
+
 	render(){
 		const { shareState, updateShareState } = this.props;
 
@@ -23,7 +38,7 @@ class ShareItem extends React.Component {
 				onClick={ () => updateShareState({}) }
 			>
 				<form 
-					onSubmit={ () => updateShareState({}) }
+					onSubmit={ this.props.handleSubmit( this.onSubmit ) }
 					className="share-form"
 					onClick={ e => e.stopPropagation() }
 				>
