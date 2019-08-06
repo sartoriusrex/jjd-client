@@ -100,14 +100,15 @@ class ButtonGroup extends React.Component{
           }
           <button
             className="dropdown-item border-0 text-light"
-            onClick={ () => 
+            onClick={ () => {
+              console.log(seqName)
               updateShareState({ 
                 techId, 
                 seqId, 
                 techName, 
                 seqName, 
                 action: "share"
-              })
+              })}
             }
           >
             Share

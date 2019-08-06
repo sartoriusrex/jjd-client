@@ -95,6 +95,7 @@ class SequenceShow extends React.Component {
               dropdownStyle="btn-group rounded bg-light"
               isCorrectUser={ userId === user._id }
               seqId={ _id }
+              seqName={ name }
             />
           }
         </div>

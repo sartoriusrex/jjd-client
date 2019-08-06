@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Field, reduxForm } from 'redux-form';
 
-import { updateShareState } from "../store/actions/auth";
+import { updateShareState, shareItem } from "../store/actions/auth";
 import { renderError } from './FormValidations';
 import EmailInput from './EmailInput';
 import './ShareItem.css';
@@ -18,21 +18,40 @@ class ShareItem extends React.Component {
 		}
 
 		return(
-			<div className="container share-modal">
+			<div
+				className="container share-modal"
+				onClick={ () => updateShareState({}) }
+			>
 				<form 
-					onSubmit={ updateShareState }
+					onSubmit={ () => updateShareState({}) }
 					className="w-100 d-flex flex-column justify-content-center align-items-center p-2 rounded share-form"
+					onClick={ e => e.stopPropagation() }
 				>
-					<p className="text-light">Share { shareState.techName || shareState.seqName } with</p>
+					<p className="text-light text-center mb-1">Share </p>
+					<em className="text-light text-center mb-1">{ shareState.techName || shareState.seqName }</em> 
+					<p className="text-light text-center mb-1">with</p>
 					<Field 
 						name="email"
 						component={ EmailInput }
 						label="e-mail"
 						renderError={ renderError }
 					/>
-					<div className="w-100 d-flex justify-content-between">
-						<button className="btn btn-warning">Cancel</button>
-						<button className="btn btn-info">Share</button>
+					<div 
+						className="w-100 d-flex justify-content-between"
+						onClick={ e => e.stopPropagation() }
+					>
+						<button 
+							className="btn btn-warning"
+							onClick={ () => updateShareState({}) }
+						>
+							Cancel
+						</button>
+						<button 
+							className="btn btn-info"
+							type="submit"
+						>
+							Share
+						</button>
 					</div>
 				</form>
 				
@@ -52,4 +71,7 @@ const wrappedForm = reduxForm({
   form: 'shareItem',
 })( ShareItem )
 
-export default connect( mapStateToProps, { updateShareState })( wrappedForm );
+export default connect( 
+	mapStateToProps, 
+	{ updateShareState, shareItem }
+	)( wrappedForm );
