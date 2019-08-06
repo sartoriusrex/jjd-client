@@ -102,7 +102,14 @@ class ButtonGroup extends React.Component{
           <button
             className="dropdown-item border-0 text-light"
             onClick={ () => 
-              handleShare({ username, techId, seqId, techName, seqName, display: "flex" })
+              handleShare({ 
+                username, 
+                techId, 
+                seqId, 
+                techName, 
+                seqName, 
+                action: "share"
+              })
             }
           >
             Share
