@@ -1,8 +1,8 @@
-# Jiu Jitsu Distilled Version 1.0.0
+# Jiu Jitsu Distilled Version 1.1.0
 
 # license: MIT
 
-## Updated 02/08/2019
+## Updated 06/08/2019
 
 ### Description
 
@@ -32,10 +32,11 @@ This is a personal project CRUD app that allows users to document Brazilian Jiu 
 4.  Account Username, Email, and Password Updating
 5.  Technique and Sequence Search, including quicksearch( All, Created by current user, liked)
 6.  Send email feedback
+7.  Share techniques and sequences via email
 
 ### Future Features:
 
-1.  Sharing Techniques and Sequences to other users via in-app inbox or email.
+1.  ~~Sharing Techniques and Sequences to other users via in-app inbox or email.~~
 2.  More svg icons to spice things up - including better styling and animations and more custom css
 3.  Search filter functionality - Filter by
   1. Type
