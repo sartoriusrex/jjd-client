@@ -5,21 +5,33 @@ import ButtonGroupAddButton from './ButtonGroupAddButton';
 import ButtonGroupHeartButtons from './ButtonGroupHeartButtons';
 import ButtonGroupAuthorizedActionButtons from './ButtonGroupAuthorizedActionButtons';
 import { ReactComponent as DotMenu } from '../icons/button_menu_vertical_dots.svg';
+import ShareItem from './ShareItem';
 import "./ButtonGroup.css"
 
-import { isTechLiked, isSeqLiked, handleTechLike, handleSeqLike, handleSeq, 
-  // handleShare //Will handle share in next phase
-} from './ButtonGroupFunctions';
+import { isTechLiked, isSeqLiked, handleTechLike, handleSeqLike, handleSeq } from './ButtonGroupFunctions';
 
-import { updateLikes } from '../store/actions/auth';
+import { updateLikes, updateShareState } from '../store/actions/auth';
 import { addToSeq } from '../store/actions/sequenceRefs';
 
 
 class ButtonGroup extends React.Component{
-
   render() {
-
-    const { seqId, techId, techName, techThumb, likedTechs, likedSeqs, userId, isCorrectUser, sequenceRefs, addToSeq, updateLikes, dropdownStyle="btn-group-vertical dropleft" } = this.props;
+    const { 
+      seqId, 
+      techId, 
+      techName, 
+      seqName, 
+      techThumb, 
+      likedTechs,
+      likedSeqs, 
+      userId, 
+      isCorrectUser, 
+      sequenceRefs, 
+      addToSeq, 
+      updateLikes,
+      updateShareState,
+      shareState,
+      dropdownStyle="btn-group-vertical dropleft" } = this.props;
 
     const techsInSeq = sequenceRefs.techniques;
 
@@ -88,16 +100,28 @@ class ButtonGroup extends React.Component{
               />
             )
           }
-          {/* Sharing Function Currently in next phase */}
-            {/* <button
-              className="dropdown-item border-0 text-light"
-              onClick={ () => handleShare() }
-            >
-              Share
-            </button> */}
-
+          <button
+            className="dropdown-item border-0 text-light"
+            onClick={ () => 
+              updateShareState({ 
+                techId, 
+                seqId, 
+                techName, 
+                seqName, 
+                action: "share"
+              })
+            }
+          >
+            Share
+          </button>
         </div>
-
+        { 
+          ( 
+            ( shareState.techName && shareState.techId === techId ) ||
+            ( shareState.seqName && shareState.seqId === seqId )
+          )
+          && <ShareItem />
+        }
       </div>
     )
   }
@@ -108,10 +132,10 @@ function mapStateToProps( state ){
     likedTechs: state.currentUser.user.likedTechs,
     likedSeqs: state.currentUser.user.likedSeqs,
     userId: state.currentUser.user.id,
-    username: state.currentUser.username,
     isAuthenticated: state.currentUser.isAuthenticated,
     sequenceRefs: state.sequenceRefs,
+    shareState: state.shareState,
   };
 }
 
-export default connect( mapStateToProps, { updateLikes, addToSeq } )( ButtonGroup );
+export default connect( mapStateToProps, { updateLikes, addToSeq, updateShareState } )( ButtonGroup );

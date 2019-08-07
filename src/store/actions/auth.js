@@ -1,5 +1,5 @@
 import { apiCall, setTokenHeader } from "../../services/api";
-import { SET_CURRENT_USER, UPDATE_USER_LIKES } from "./actionTypes";
+import { SET_CURRENT_USER, UPDATE_USER_LIKES, UPDATE_SHARE_STATE } from "./actionTypes";
 import { addError, removeError } from "./errors";
 import { sendMessage } from './mail';
 import history from '../../history';
@@ -129,6 +129,28 @@ export const updateLikes = ( newLikes, to ) => ( dispatch, getState ) => {
       dispatch( addError( err.message ) ) }
     )
   );
+}
+
+export const updateShareState = shareInfo => ({
+  type: UPDATE_SHARE_STATE,
+  shareInfo
+})
+
+
+export const shareItem = delivery => dispatch => {
+  return (
+    apiCall(
+      "post",
+      `/api/users/${ delivery.userId }/share`,
+      delivery
+    )
+    .then( res => dispatch(
+      dispatch( sendMessage( res ) )
+    ))
+    .catch( err => dispatch(
+      addError( err.message )
+    ))
+  )
 }
 
 export const sendResetPasswordEmail = formValues => dispatch => {

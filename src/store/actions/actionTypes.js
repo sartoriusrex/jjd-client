@@ -23,5 +23,7 @@ export const REMOVE_REF = "REMOVE_REF";
 
 export const UPDATE_USER_LIKES = "UPDATE_USER_LIKES";
 
+export const UPDATE_SHARE_STATE = "UPDATE_SHARE_STATE";
+
 export const SEND_MESSAGE = "SEND_MESSAGE";
 export const CLEAR_MESSAGES = "CLEAR_MESSAGES";

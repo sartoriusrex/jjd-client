@@ -68,7 +68,3 @@ export const isSeqLiked = ( seqId, likedSeqs ) => {
   }
   return false;
 }
-
-export const handleShare = () => {
-  
-}

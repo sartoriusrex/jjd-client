@@ -126,4 +126,7 @@ const wrappedForm = reduxForm({
 })( ContributePage )
 
 
-export default connect( mapStateToProps, { sendFeedback, clearMessages, removeError })( wrappedForm );
+export default connect( 
+  mapStateToProps, 
+  { sendFeedback, clearMessages, removeError }
+  )( wrappedForm );
