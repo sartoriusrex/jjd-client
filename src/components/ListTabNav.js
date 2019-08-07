@@ -38,10 +38,10 @@ class ListTabNav extends React.Component {
     const { to } = this.props;
     let classActive = "btn border-bottom";
     let classInactive = "btn";
-    let barClassStyle = "btn-group d-flex justify-content-center mb-2";
+    let barClassStyle = "btn-group w-100 d-flex justify-content-center mb-2";
 
     if( to === "Sequence" ){
-      barClassStyle = "btn-group d-flex justify-content-center mb-2 border-info";
+      barClassStyle = "btn-group w-100 d-flex justify-content-center mb-2 border-info";
     }
 
     return(
