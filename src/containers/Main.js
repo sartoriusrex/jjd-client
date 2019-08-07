@@ -115,7 +115,6 @@ const Main = props => {
 
           return(
             <TechniqueIndex 
-              errors={ errors }
               currentUser={ currentUser }
               search={ search }
             />
@@ -133,7 +132,6 @@ const Main = props => {
 
           return(
             <SequenceIndex 
-              errors={ errors }
               currentUser={ currentUser }
               search={ search }
             />
