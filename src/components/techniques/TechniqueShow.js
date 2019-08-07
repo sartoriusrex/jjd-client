@@ -5,10 +5,9 @@ import VideoPlayer from '../VideoPlayer';
 
 import { showTechnique } from '../../store/actions/techniques';
 import LoadSpinner from '../LoadSpinner';
-import SearchForm from '../SearchBar';
-import BackButton from '../BackButton';
 import Accordion from '../Accordion';
 import ButtonGroup from '../ButtonGroup';
+import ShowSearchBar from '../ShowSearchBar';
 
 
 class TechniqueShow extends React.Component {
@@ -123,23 +122,8 @@ class TechniqueShow extends React.Component {
 
     return (
       <div className="container main min-vh-100 pt-3 pl-1 pr-1">
-      {/* The Back btn and search bar at the top */}
-        <div className="d-flex justify-content-between align-items-baseline w-100 mb-4">
 
-          <div className="w-25 d-flex">
-            <BackButton />
-          </div>
-
-          <SearchForm to="Techniques" go="techs" />
-
-          <div className="w-25">
-            { "" }
-            {/* This Div is used for formatting purposes only: so that the SearchTechniquesBar can be centered and the back button on the far left */}
-          </div>
-
-        </div>
-
-        {/* The body of the show page */}
+        <ShowSearchBar to="Techniques" go="techs" />
 
         {
         // If there is a video, then show the videoplayer, otherwise show nothing

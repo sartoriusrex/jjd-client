@@ -1,8 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import CreateButton from "../components/CreateButton";
-import SearchForm from "../components/SearchBar";
+import IndexSearchBar from '../components/IndexSearchBar';
 import ListTabNav from "../components/ListTabNav";
 import SequenceList from "../components/sequences/SequenceList";
 import ErrorsDisplay from '../components/ErrorsDisplay';
@@ -30,11 +29,12 @@ class SequenceIndex extends React.Component {
           message &&
           <MessagesDisplay message={ message } />
         }
-  
-        <div className="d-flex justify-content-between align-items-center mb-4">
-          <SearchForm to="Sequences" />
-          <CreateButton to="Sequence" classStyle="btn btn-info shadow-lg"/>
-        </div>
+
+        <IndexSearchBar
+          searchTo="Sequences"
+          createTo="Sequence" 
+          classStyle="btn btn-info shadow-lg mb-3"
+        />
         <ListTabNav to="Sequence" />
         <SequenceList search={ search }/>
       </div>

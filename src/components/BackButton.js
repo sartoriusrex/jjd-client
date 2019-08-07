@@ -4,7 +4,7 @@ import history from '../history';
 import { ReactComponent as LeftArrow } from '../icons/left-arrow-backward.svg';
 import "./ButtonGroup.css"
 
-const BackButton = ({ text, className="btn btn-secondary shadow-lg d-flex" }) => {
+const BackButton = ({ text, className="btn btn-secondary shadow-lg mb-3 mb-sm-0" }) => {
   return(
     <button
       className={ className }

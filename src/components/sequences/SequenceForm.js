@@ -131,7 +131,7 @@ class SequenceForm extends React.Component {
 
           <div className="d-flex justify-content-center mt-4">
             <div
-              className="pr-4 mb-4 mt-4"
+              className="pr-4 mt-4"
               onClick={ (e) => e.stopPropagation() }
             >
               <BackButton text="Cancel" />

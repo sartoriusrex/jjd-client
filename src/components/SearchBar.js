@@ -13,7 +13,6 @@ import "./ButtonGroup.css";
 class SearchBar extends React.Component {
 
   renderInput = ({ input, label, placeholder, classStyle="input-group shadow" }) => {
-
     return (
       <div className={ classStyle }>
         <input
@@ -60,7 +59,7 @@ class SearchBar extends React.Component {
     let placeholder = `Search for ${ to }`;
 
     return(
-      <div className="input-group w-50">
+      <div className="input-group mb-3 col-10 col-sm-6 p-0">
         <form
           onSubmit={ this.props.handleSubmit( this.onSubmit ) }
           className="w-100 "

@@ -5,9 +5,8 @@ import { showSequence } from "../../store/actions/sequences";
 import SequenceShowDescription from './SequenceShowDescription';
 import SequenceShowSequence from './SequenceShowSequence';
 import LoadSpinner from '../LoadSpinner';
-import SearchForm from '../SearchBar';
-import BackButton from '../BackButton';
 import ButtonGroup from '../ButtonGroup';
+import ShowSearchBar from '../ShowSearchBar';
 
 
 class SequenceShow extends React.Component {
@@ -72,20 +71,8 @@ class SequenceShow extends React.Component {
 
     return(
       <div className="container main min-vh-100 pt-3 pl-1 pr-1">
-        <div className="d-flex justify-content-between align-items-baseline w-100 mb-4 pb-4">
 
-          <div className="w-25 d-flex">
-            <BackButton />
-          </div>
-
-          <SearchForm to="Sequences" go="seqs" />
-
-          <div className="w-25">
-            { "" }
-            {/* This Div is used for formatting purposes only: so that the SearchTechniquesBar can be centered and the back button on the far left */}
-          </div>
-
-        </div>
+        <ShowSearchBar to="Sequences" go="seqs" />
 
         <div className="d-flex justify-content-between align-items-baseline bg-info text-light p-2 pb-3 pt-3 rounded mb-4 mt-4">
           <h5 className="m-0"> { name } </h5>

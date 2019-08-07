@@ -1,8 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import CreateButton from "../components/CreateButton";
-import SearchForm from "../components/SearchBar";
+import IndexSearchBar from '../components/IndexSearchBar';
 import ListTabNav from "../components/ListTabNav";
 import TechniqueList from "../components/techniques/TechniqueList";
 import ErrorsDisplay from '../components/ErrorsDisplay';
@@ -30,11 +29,8 @@ class TechniqueIndex extends React.Component {
           message &&
           <MessagesDisplay message={ message } />
         }
-  
-        <div className="d-flex justify-content-between align-items-center mb-4">
-          <SearchForm to="Techniques" />
-          <CreateButton to="Technique" />
-        </div>
+
+        <IndexSearchBar searchTo="Techniques" createTo="Technique" />
         <ListTabNav to="Technique" />
         <TechniqueList search={ search }/>
       </div>

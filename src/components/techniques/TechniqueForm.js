@@ -250,13 +250,13 @@ class TechniqueForm extends React.Component {
 
           <div className="d-flex justify-content-center">
             <div
-              className="pr-4 mb-4 mt-4"
-              onClick={ (e) => e.stopPropagation() }
+              className="pr-4 mt-4"
+              onClick={ e => e.stopPropagation() }
             >
               <BackButton text="Cancel" />
             </div>
             <button
-              className="btn btn-success shadow-lg mb-4 mt-4">
+              className="btn btn-success shadow mb-4 mt-4">
               Submit Technique
             </button>
           </div>

@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 class CreateButton extends React.Component {
   render(){
-    let { userId, to, classStyle="btn btn-primary shadow-lg" } = this.props;
+    let { userId, to, classStyle="btn btn-primary shadow-lg mb-3" } = this.props;
     let link;
 
     if ( to === "Technique" ){
