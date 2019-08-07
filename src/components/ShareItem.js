@@ -11,7 +11,7 @@ import './ShareItem.css';
 class ShareItem extends React.Component {
 
 	onSubmit = formValues => {
-		const { shareState, updateShareState, username, shareItem } = this.props;
+		const { shareState, updateShareState, username, userId, shareItem } = this.props;
 		let delivery = {};
 
 		delivery.email = formValues.email;
@@ -20,6 +20,7 @@ class ShareItem extends React.Component {
 		delivery.seqName = shareState.seqName;
 		delivery.seqId = shareState.seqId;
 		delivery.username = username;
+		delivery.userId = userId;
 
 		shareItem( delivery );
 		updateShareState({});
@@ -77,7 +78,8 @@ class ShareItem extends React.Component {
 
 function mapStateToProps( state ){
   return {
-    username: state.currentUser.user.username,
+		username: state.currentUser.user.username,
+		userId: state.currentUser.user.id,
 		shareState: state.shareState
   };
 }

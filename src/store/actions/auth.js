@@ -138,20 +138,19 @@ export const updateShareState = shareInfo => ({
 
 
 export const shareItem = delivery => dispatch => {
-  console.log( delivery )
-  // return (
-  //   apiCall(
-  //     "post",
-  //     "api/share",
-  //     { email, username, techName, seqName, techId, seqId }
-  //   )
-  //   .then( res => dispatch(
-  //     sendMessage( res )
-  //   ))
-  //   .catch( err => dispatch(
-  //     addError( err.message )
-  //   ))
-  // )
+  return (
+    apiCall(
+      "post",
+      `/api/users/${ delivery.userId }/share`,
+      delivery
+    )
+    .then( res => dispatch(
+      dispatch( sendMessage( res ) )
+    ))
+    .catch( err => dispatch(
+      addError( err.message )
+    ))
+  )
 }
 
 export const sendResetPasswordEmail = formValues => dispatch => {
