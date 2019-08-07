@@ -3,14 +3,14 @@ import { connect } from "react-redux";
 
 import { fetchTechniques } from "../../store/actions/techniques";
 import TechniqueAddRefListItem from "./TechniqueAddRefListItem";
+import NoResult from '../NoResult';
 
 
 class TechniqueAddRefList extends React.Component {
   componentDidMount() {
-    const { fetchTechniques } = this.props;
-    let query;
+    const { fetchTechniques, search } = this.props;
 
-    fetchTechniques( query );
+    fetchTechniques( search );
   }
 
   render(){
@@ -33,7 +33,11 @@ class TechniqueAddRefList extends React.Component {
 
     return (
       <ul className="list-group list-group-flush w-100" id="techniques-list">
-        { techniqueList }
+        { 
+          techniqueList === 0 ?
+          <NoResult /> :
+          techniqueList
+        }
       </ul>
     )
   }

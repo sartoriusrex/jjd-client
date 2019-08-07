@@ -35,7 +35,7 @@ class TechniqueAddRefPage extends React.Component{
     // location.state comes from state object passed down from Link, since TechAddRef is rendered directly by Main.js
 
     return(
-      <div className="container main min-vh-100 pt-3 pl-1 pr-1">
+      <div className="container main min-vh-100 pt-3 pl-1 pr-1 d-flex flex-column align-items-center">
         <div className="container-fluid d-flex flex-column align-items-center">
           <h2 className="text-center w-100 pb-0">Current { arrayName } To</h2>
           <h2 className="text-center w-100 pb-2">{`${ techName }`}</h2>
@@ -62,12 +62,12 @@ class TechniqueAddRefPage extends React.Component{
             </>
           }
         </ul>
-
-        <h4 className="w-100 text-center border-top border-dark pb-4 pt-4">{`Add ${ arrayItemName }`}</h4>
-
-        <div className="w-100 pb-2 d-flex justify-content-between flex-nowrap">
-          <SearchForm to="Techniques" />
-          <div className="w-25 d-flex justify-content-between pb-4">
+        
+        <div className="w-100 pb-4 pt-4 d-flex justify-content-between align-items-baseline border-top border-dark">
+          <h4 className="text-center">
+            {`Add ${ arrayItemName }`}
+          </h4>
+          <div className="w-50 d-flex justify-content-between">
             <button
               className="btn btn-primary"
               onClick={ this.updateRefs }
@@ -80,7 +80,11 @@ class TechniqueAddRefPage extends React.Component{
           </div>
         </div>
 
-        <ListTabNav />
+        {/* <div className="w-100 mb-4 d-flex flex-column-reverse justify-content-between align-items-center flex-nowrap"> */}
+          <SearchForm to="Techniques" />
+        {/* </div> */}
+
+        <ListTabNav to="Technique" />
         <TechniqueAddRefList />
       </div>
     )
