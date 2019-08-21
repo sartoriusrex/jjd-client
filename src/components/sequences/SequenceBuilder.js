@@ -46,9 +46,8 @@ class SequenceBuilder extends React.Component{
 
     let techniqueList = techniques.map( ( techs, i ) => {
       return(
-        <ErrorBoundary>
+        <ErrorBoundary key={ i }>
           <SequenceBuilderItem
-            key={ i }
             thumbnail={ techs.thumbnail }
           />
         </ErrorBoundary>

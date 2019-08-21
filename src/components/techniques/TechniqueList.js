@@ -20,9 +20,8 @@ class TechniqueList extends React.Component {
 
     let techniqueList = techniques.map( techs => {
       return(
-        <ErrorBoundary>
+        <ErrorBoundary key={ techs._id }>
           <TechniqueListItem
-            key={ techs._id }
             techId={ techs._id }
             username={ techs.user.username }
             name={ techs.name }

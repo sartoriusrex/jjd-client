@@ -19,11 +19,9 @@ class SequenceList extends React.Component {
     const { sequences, currentUser, likedSeqs, isAuthenticated } = this.props;
 
     let sequenceList = sequences.map( sequences => {
-
       return(
-        <ErrorBoundary>
+        <ErrorBoundary key={ sequences._id } >
           <SequenceListItem
-            key={ sequences._id }
             seqId={ sequences._id }
             username={ sequences.user.username }
             description={ sequences.description }

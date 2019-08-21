@@ -16,9 +16,8 @@ const SequenceShowSequence = ({ techniques }) => {
         // On initial Load, tech is just the id, but becomes populated afterwards by mongoose populate function - this is to prevent key errors on initial load;
 
         return(
-          <ErrorBoundary>
+          <ErrorBoundary key={ key }>
             <div 
-              key={ key }
               className="pt-2 pb-2 d-flex flex-column justify-content-center align-items-center w-100"
             >
               <Link 

@@ -18,9 +18,8 @@ class TechniqueAddRefList extends React.Component {
     const { techniques } = this.props;
 
     let techniqueList = techniques.map( techs => (
-      <ErrorBoundary>
+      <ErrorBoundary key={techs._id}>
         <TechniqueAddRefListItem
-          key={techs._id}
           id={techs._id}
           username={techs.user.username}
           name={techs.name}
