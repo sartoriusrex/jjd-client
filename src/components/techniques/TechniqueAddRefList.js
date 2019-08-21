@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import { fetchTechniques } from "../../store/actions/techniques";
 import TechniqueAddRefListItem from "./TechniqueAddRefListItem";
 import NoResult from '../NoResult';
+import ErrorBoundary from '../ErrorBoundary';
 
 
 class TechniqueAddRefList extends React.Component {
@@ -17,18 +18,20 @@ class TechniqueAddRefList extends React.Component {
     const { techniques } = this.props;
 
     let techniqueList = techniques.map( techs => (
-      <TechniqueAddRefListItem
-        key={techs._id}
-        id={techs._id}
-        username={techs.user.username}
-        name={techs.name}
-        thumbnail={ techs.thumbnail }
-        type={techs.type}
-        positionMajor={techs.positionMajor}
-        positionMinor={techs.positionMinor}
-        mode={techs.mode}
-        userId={techs.user._id}
-      />
+      <ErrorBoundary>
+        <TechniqueAddRefListItem
+          key={techs._id}
+          id={techs._id}
+          username={techs.user.username}
+          name={techs.name}
+          thumbnail={ techs.thumbnail }
+          type={techs.type}
+          positionMajor={techs.positionMajor}
+          positionMinor={techs.positionMinor}
+          mode={techs.mode}
+          userId={techs.user._id}
+        />
+      </ErrorBoundary>
     ));
 
     return (

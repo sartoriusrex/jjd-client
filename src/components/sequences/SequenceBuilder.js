@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import history from '../../history';
 import { removeSequence } from '../../store/actions/sequenceRefs';
 import SequenceBuilderItem from './SequenceBuilderItem';
+import ErrorBoundary from '../ErrorBoundary';
 
 
 class SequenceBuilder extends React.Component{
@@ -45,10 +46,12 @@ class SequenceBuilder extends React.Component{
 
     let techniqueList = techniques.map( ( techs, i ) => {
       return(
-        <SequenceBuilderItem
-          key={ i }
-          thumbnail={ techs.thumbnail }
-        />
+        <ErrorBoundary>
+          <SequenceBuilderItem
+            key={ i }
+            thumbnail={ techs.thumbnail }
+          />
+        </ErrorBoundary>
       )
     });
 

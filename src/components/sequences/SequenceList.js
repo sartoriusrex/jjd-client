@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import { fetchSequences } from "../../store/actions/sequences";
 import SequenceListItem from "./SequenceListItem";
 import NoResult from '../NoResult';
+import ErrorBoundary from '../ErrorBoundary';
 
 
 class SequenceList extends React.Component {
@@ -20,17 +21,19 @@ class SequenceList extends React.Component {
     let sequenceList = sequences.map( sequences => {
 
       return(
-        <SequenceListItem
-          key={ sequences._id }
-          seqId={ sequences._id }
-          username={ sequences.user.username }
-          description={ sequences.description }
-          name={ sequences.name }
-          thumbnail={ sequences.thumbnail }
-          isCorrectUser={ currentUser === sequences.user._id }
-          isAuthenticated={ isAuthenticated }
-          likedSeqs={ likedSeqs }
-        />
+        <ErrorBoundary>
+          <SequenceListItem
+            key={ sequences._id }
+            seqId={ sequences._id }
+            username={ sequences.user.username }
+            description={ sequences.description }
+            name={ sequences.name }
+            thumbnail={ sequences.thumbnail }
+            isCorrectUser={ currentUser === sequences.user._id }
+            isAuthenticated={ isAuthenticated }
+            likedSeqs={ likedSeqs }
+          />
+        </ErrorBoundary>
     )});
 
     return (
