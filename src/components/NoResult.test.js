@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from 'react-dom';
-import NoResult from './NoResult';
+import NoResult from 'components/NoResult';
 
 // Checks to see that NoResult renders the text "Sorry, No Results"
 

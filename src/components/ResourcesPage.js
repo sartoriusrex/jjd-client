@@ -15,9 +15,12 @@ const ResourcesPage = () => {
     )
   }
 
-  const renderLi = ( { href, title, description } ) => {
+  const renderListItem = ( { href, title, description } ) => {
     return(
-      <li className="list-group-item bg-transparent pl-0 pr-0">
+      <li
+        key={ title }
+        className="list-group-item bg-transparent pl-0 pr-0"
+      >
         <a
           href={ href }
           target="_blank"
@@ -56,10 +59,14 @@ const ResourcesPage = () => {
             <div id="collapseOne" className="collapse" aria-labelledby="headingOne" data-parent="#resourcesAccordion">
               <div className="card-body pt-2">
                 <ul className="list-group list-group-flush pt-2 pb-2 w-100 bg-transparent">
-                  {renderLi( Resources.reddit )}
-                  {renderLi( Resources.grappleArts )}
-                  {renderLi( Resources.grapplersGuide )}
-                  {renderLi( Resources.slideyFoot )}
+                  { Resources.forums.sort( 
+                    ( first, second ) => {
+                      if( first.title < second.title ) { return -1 }
+                      if( first.title > second.title ) { return 1 }
+                      return 0;
+                    }).map( resource =>
+                      renderListItem( resource )
+                  )}
                 </ul>
               </div>
             </div>
@@ -92,11 +99,13 @@ const ResourcesPage = () => {
                         <div id="collapsefirstTimers" className="collapse" aria-labelledby="firstTimers" data-parent="#FirstTimersAccordion">
                           <div className="card-body pt-2">
                             <ul className="list-group list-group-flush pt-2 pb-2 w-100 bg-transparent">
-                              { renderLi( Resources.nineThreeBrand
-                              )}
-                              { renderLi( Resources.fuji
-                              )}
-                              { renderLi( Resources.sanabul
+                              { Resources.firstGis.sort( 
+                                ( first, second ) => {
+                                  if( first.title < second.title ) { return -1 }
+                                  if( first.title > second.title ) { return 1 }
+                                  return 0;
+                                }).map( resource =>
+                                  renderListItem( resource )
                               )}
                             </ul>
                           </div>
@@ -120,32 +129,14 @@ const ResourcesPage = () => {
                         <div id="collapsestandard" className="collapse" aria-labelledby="standard" data-parent="#StandardAccordion">
                           <div className="card-body pt-2">
                             <ul className="list-group list-group-flush pt-2 pb-2 w-100 bg-transparent">
-                            { renderLi( Resources.atama)}
-                            { renderLi( Resources.coffeKimuras)}
-                            { renderLi( Resources.enois)}
-                            { renderLi( Resources.fightaesthetic)}
-                            { renderLi( Resources.fushida)}
-                            { renderLi( Resources.hayabusa)}
-                            { renderLi( Resources.hyperfly)}
-                            { renderLi( Resources.hypnotik)}
-                            { renderLi( Resources.invertedGear)}
-                            { renderLi( Resources.jiujiteiro)}
-                            { renderLi( Resources.keiko)}
-                            { renderLi( Resources.kingz)}
-                            { renderLi( Resources.koral)}
-                            { renderLi( Resources.ma1)}
-                            { renderLi( Resources.maeda)}
-                            { renderLi( Resources.manto)}
-                            { renderLi( Resources.newaza)}
-                            { renderLi( Resources.phalanx)}
-                            { renderLi( Resources.progress)}
-                            { renderLi( Resources.raven)}
-                            { renderLi( Resources.ronin)}
-                            { renderLi( Resources.scramble)}
-                            { renderLi( Resources.senso)}
-                            { renderLi( Resources.storm)}
-                            { renderLi( Resources.tatami)}
-                            { renderLi( Resources.venum)}
+                              { Resources.standardGis.sort( 
+                                ( first, second ) => {
+                                  if( first.title < second.title ) { return -1 }
+                                  if( first.title > second.title ) { return 1 }
+                                  return 0;
+                                }).map( resource =>
+                                  renderListItem( resource )
+                              )}
                             </ul>
                           </div>
                         </div>
@@ -168,16 +159,14 @@ const ResourcesPage = () => {
                         <div id="collapsepremium" className="collapse" aria-labelledby="premium" data-parent="#PremiumAccordion">
                           <div className="card-body pt-2">
                             <ul className="list-group list-group-flush pt-2 pb-2 w-100 bg-transparent">
-                              { renderLi( Resources.ap)}
-                              { renderLi( Resources.bullterrier)}
-                              { renderLi( Resources.ctrl)}
-                              { renderLi( Resources.gr1ps)}
-                              { renderLi( Resources.moya)}
-                              { renderLi( Resources.origin)}
-                              { renderLi( Resources.shoyoroll)}
-                              { renderLi( Resources.vanguard)}
-                              { renderLi( Resources.vhts)}
-                              { renderLi( Resources.wartribe)}
+                              { Resources.premiumGis.sort( 
+                                ( first, second ) => {
+                                  if( first.title < second.title ) { return -1 }
+                                  if( first.title > second.title ) { return 1 }
+                                  return 0;
+                                }).map( resource =>
+                                  renderListItem( resource )
+                              )}
                             </ul>
                           </div>
                         </div>
@@ -200,12 +189,14 @@ const ResourcesPage = () => {
                         <div id="collapsespecialty" className="collapse" aria-labelledby="specialty" data-parent="#SpecialityAccordion">
                           <div className="card-body pt-2">
                             <ul className="list-group list-group-flush pt-2 pb-2 w-100 bg-transparent">
-                              { renderLi( Resources.chokeRepublic)}
-                              { renderLi( Resources.datsusara)}
-                              { renderLi( Resources.flowKimonos)}
-                              { renderLi( Resources.gimono)}
-                              { renderLi( Resources.globetrotters)}
-                              { renderLi( Resources.meerkatsu)}
+                              { Resources.specialtyGis.sort( 
+                                ( first, second ) => {
+                                  if( first.title < second.title ) { return -1 }
+                                  if( first.title > second.title ) { return 1 }
+                                  return 0;
+                                }).map( resource =>
+                                  renderListItem( resource )
+                              )}
                             </ul>
                           </div>
                         </div>
@@ -228,10 +219,14 @@ const ResourcesPage = () => {
                         <div id="collapseresellers" className="collapse" aria-labelledby="resellers" data-parent="#ResellersAccordion">
                           <div className="card-body pt-2">
                             <ul className="list-group list-group-flush pt-2 pb-2 w-100 bg-transparent">
-                              { renderLi( Resources.bjjdepot)}
-                              { renderLi( Resources.bjjhq)}
-                              { renderLi( Resources.bjjsports)}
-                              { renderLi( Resources.fightersmarket)}
+                              { Resources.resellers.sort( 
+                                ( first, second ) => {
+                                  if( first.title < second.title ) { return -1 }
+                                  if( first.title > second.title ) { return 1 }
+                                  return 0;
+                                }).map( resource =>
+                                  renderListItem( resource )
+                              )}
                             </ul>
                           </div>
                         </div>
@@ -254,14 +249,14 @@ const ResourcesPage = () => {
             <div id="collapseThree" className="collapse" aria-labelledby="headingThree" data-parent="#resourcesAccordion">
               <div className="card-body pt-2">
                 <ul className="list-group list-group-flush pt-2 pb-2 w-100 bg-transparent">
-                  {renderLi( Resources.bjjfanatics )}
-                  {renderLi( Resources.budo )}
-                  {renderLi( Resources.digitsu )}
-                  {renderLi( Resources.grapplersGuide )}
-                  {renderLi( Resources.grappleArts )}
-                  {renderLi( Resources.groundfighter )}
-                  {renderLi( Resources.jiuJitsuUniversity )}
-                  {renderLi( Resources.rdojo )}
+                  { Resources.instructionals.sort( 
+                    ( first, second ) => {
+                      if( first.title < second.title ) { return -1 }
+                      if( first.title > second.title ) { return 1 }
+                      return 0;
+                    }).map( resource =>
+                      renderListItem( resource )
+                  )}
                 </ul>
               </div>
             </div>
@@ -278,13 +273,14 @@ const ResourcesPage = () => {
             <div id="collapseFour" className="collapse" aria-labelledby="headingFour" data-parent="#resourcesAccordion">
               <div className="card-body pt-2">
                 <ul className="list-group list-group-flush pt-2 pb-2 w-100 bg-transparent">
-                  { renderLi( Resources.agf )}
-                  { renderLi( Resources.bjjGlobetrotters )}
-                  { renderLi( Resources.grapplingIndustries )}
-                  { renderLi( Resources.ibjjf )}
-                  { renderLi( Resources.naga )}
-                  { renderLi( Resources.smoothcomp )}
-                  { renderLi( Resources.usgrappling )}
+                  { Resources.experiences.sort( 
+                    ( first, second ) => {
+                      if( first.title < second.title ) { return -1 }
+                      if( first.title > second.title ) { return 1 }
+                      return 0;
+                    }).map( resource =>
+                      renderListItem( resource )
+                  )}
                 </ul>
               </div>
             </div>
