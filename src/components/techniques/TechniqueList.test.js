@@ -54,7 +54,9 @@ beforeEach( () => {
 			<TechniqueList />
 		</Root>
 	)
-})
+});
+
+afterEach( () => wrapped.unmount() );
 
 it ('creates a techniquelist item', () => {
 	expect( wrapped.find('li').length ).toEqual( 2 );

@@ -11,6 +11,10 @@ beforeEach( () => {
 	wrapped = shallow( <App /> );
 });
 
+afterEach( () => {
+	wrapped.unmount();
+});
+
 it ( 'App renders Main', () => {
 	expect( wrapped.find( Main ).length ).toEqual( 1 );
 });
