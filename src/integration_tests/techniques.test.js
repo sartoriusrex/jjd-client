@@ -70,4 +70,6 @@ it ('can fetch a list of techniques and display them' , () => {
 	)
 
 	expect(wrapped.find('li').length).toEqual(2);
+
+	wrapped.unmount();
 });
