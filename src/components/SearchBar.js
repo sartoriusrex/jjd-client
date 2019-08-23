@@ -10,7 +10,7 @@ import { ReactComponent as MagGlass } from '../icons/button_search.svg';
 import "./ButtonGroup.css";
 
 
-class SearchBar extends React.Component {
+export class SearchBar extends React.Component {
 
   renderInput = ({ input, label, placeholder, classStyle="input-group shadow" }) => {
     return (
