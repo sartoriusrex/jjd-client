@@ -16,6 +16,7 @@ import TechniqueInput from './TechniqueInput';
 import { techCatOptions } from './TechniqueCategoryOptionsList';
 import SelectField from '../SelectField';
 import BackButton from '../BackButton';
+import ErrorBoundary from '../ErrorBoundary';
 
 class TechniqueForm extends React.Component {
 
@@ -195,39 +196,43 @@ class TechniqueForm extends React.Component {
           {
             initialValues &&
             <>
-              <FieldArray
-                name="entries"
-                component={ TechniqueRefFieldArray }
-                props={{
-                  name: "entries",
-                  arrayName: "Entries",
-                  buttonText: "Add Entry",
-                  arrayItemName: "Entry",
-                  renderError: renderError,
-                  userId: userId,
-                  currentRefs: initialValues.entries,
-                  techId: techId,
-                  techName: initialValues.name,
-                  classStyle: "input-group-sm input-group mb-1 pr-2"
-                }}
-              />
+              <ErrorBoundary>
+                <FieldArray
+                  name="entries"
+                  component={ TechniqueRefFieldArray }
+                  props={{
+                    name: "entries",
+                    arrayName: "Entries",
+                    buttonText: "Add Entry",
+                    arrayItemName: "Entry",
+                    renderError: renderError,
+                    userId: userId,
+                    currentRefs: initialValues.entries,
+                    techId: techId,
+                    techName: initialValues.name,
+                    classStyle: "input-group-sm input-group mb-1 pr-2"
+                  }}
+                />
+              </ErrorBoundary>
 
-              <FieldArray
-                name="reactions"
-                component={ TechniqueRefFieldArray }
-                props={{
-                  name: "reactions",
-                  arrayName: "Reactions",
-                  buttonText: "Add Reaction",
-                  arrayItemName: "Reaction",
-                  renderError: renderError,
-                  userId: userId,
-                  currentRefs: initialValues.reactions,
-                  techId: techId,
-                  techName: initialValues.name,
-                  classStyle: "input-group-sm input-group mb-1 pr-2"
-                }}
-              />
+              <ErrorBoundary>
+                <FieldArray
+                  name="reactions"
+                  component={ TechniqueRefFieldArray }
+                  props={{
+                    name: "reactions",
+                    arrayName: "Reactions",
+                    buttonText: "Add Reaction",
+                    arrayItemName: "Reaction",
+                    renderError: renderError,
+                    userId: userId,
+                    currentRefs: initialValues.reactions,
+                    techId: techId,
+                    techName: initialValues.name,
+                    classStyle: "input-group-sm input-group mb-1 pr-2"
+                  }}
+                />
+              </ErrorBoundary>
             </>
           }
           <FieldArray

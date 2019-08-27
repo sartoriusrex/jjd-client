@@ -9,6 +9,7 @@ import BackButton from '../BackButton';
 import { capitalizeFirstLetter, renderError, validateSequence } from '../FormValidations';
 import { addToSeq } from '../../store/actions/sequenceRefs';
 import { addError } from '../../store/actions/errors';
+import ErrorBoundary from '../ErrorBoundary';
 
 import TechniqueRefFieldArray from '../techniques/TechniqueRefFieldArray';
 
@@ -109,25 +110,27 @@ class SequenceForm extends React.Component {
             }}
           />
 
-           <FieldArray
-            name="techniques"
-            component={ TechniqueRefFieldArray }
-            props={{
-              name: "techniques",
-              arrayName: "Techniques",
-              buttonText: "Add Technique",
-              arrayItemName: "Technique",
-              renderError: renderError,
-              userId: userId,
-              currentRefs: displayTechs,
-              techId: "techid",
-              techName: "name",
-              sequence: true,
-              onClick: this.addMoreTechs,
-              classStyle: "input-group pr-2 pl-2",
-              liClassStyle: "d-flex justify-content-between align-items-center border border-secondary p-1 m-1 bg-white rounded"
-            }}
-          />
+          <ErrorBoundary>
+            <FieldArray
+              name="techniques"
+              component={ TechniqueRefFieldArray }
+              props={{
+                name: "techniques",
+                arrayName: "Techniques",
+                buttonText: "Add Technique",
+                arrayItemName: "Technique",
+                renderError: renderError,
+                userId: userId,
+                currentRefs: displayTechs,
+                techId: "techid",
+                techName: "name",
+                sequence: true,
+                onClick: this.addMoreTechs,
+                classStyle: "input-group pr-2 pl-2",
+                liClassStyle: "d-flex justify-content-between align-items-center border border-secondary p-1 m-1 bg-white rounded"
+              }}
+            />
+          </ErrorBoundary>
 
           <div className="d-flex justify-content-center mt-4">
             <div

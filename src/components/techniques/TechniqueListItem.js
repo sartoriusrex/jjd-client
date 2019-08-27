@@ -21,7 +21,7 @@ const TechniqueListItem = (
   }
 
   return(
-    <div
+    <li
       className="list-group-item list-group-item-action card mb-3 w-100 shadow-sm">
       <div className="row no-gutters card-body d-flex justify-content-between flex-nowrap p-0">
 
@@ -62,7 +62,7 @@ const TechniqueListItem = (
         }
 
       </div>
-    </div>
+    </li>
   )
 };
 

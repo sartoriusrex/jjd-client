@@ -2,7 +2,10 @@ import React from 'react';
 import { renderError } from './FormValidations';
 
 
-const AuthInput = ({ input, label, meta, className="form-control w-75", type }) => {
+const AuthInput = (
+  { input, label, meta, className="form-control w-75", type }
+  ) => {
+    
   let inputType;
 
   type === "username" ?

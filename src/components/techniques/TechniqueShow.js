@@ -8,6 +8,7 @@ import LoadSpinner from '../LoadSpinner';
 import Accordion from '../Accordion';
 import ButtonGroup from '../ButtonGroup';
 import ShowSearchBar from '../ShowSearchBar';
+import ErrorBoundary from '../ErrorBoundary';
 
 
 class TechniqueShow extends React.Component {
@@ -128,7 +129,9 @@ class TechniqueShow extends React.Component {
         {
         // If there is a video, then show the videoplayer, otherwise show nothing
           video &&
-          <VideoPlayer url={ video } />
+          <ErrorBoundary>
+            <VideoPlayer url={ video } />
+          </ErrorBoundary>
         }
 
         <div className="d-flex justify-content-between pb-4 pt-4">
