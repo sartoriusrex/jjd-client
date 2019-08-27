@@ -273,6 +273,11 @@ export const Resources = {
       title: "Choke Republic",
       description: "They only sell streetwear / apparel. As such, if you want to embody the Jiu Jitsu Lifestyle on the street, give this company a look. You could also wear your gi everwhere. Yeah. Do that, instead."
     },
+    {
+      href: "http://www.kauaikimonos.com/",
+      title: "Kauai Kimonos",
+      description: "Kauai Kimonos handemake all their kimonos from Bali, and they're all 100% Ripstop. Niche market with a SOLID reputation in making lightweight gis, perfect for training in tropical climates, such as Kauai. That's the Hawaiian Island further west of Oahu, if you were unfamiliar, also known as 'the Garden Isle'. The community only has good things to say about them."
+    },
   ],
   resellers: [
     {
@@ -294,11 +299,6 @@ export const Resources = {
       href: "https://bjjsports.com/",
       title: "BJJ Sports",
       description: "You can't get more generic than that for a title. Give them a go if you're looking for something, anything."
-    },
-    {
-      href: "http://www.kauaikimonos.com/",
-      title: "Kauai Kimonos",
-      description: "Kauai Kimonos handemake all their kimonos from Bali, and they're all 100% Ripstop. Niche market with a SOLID reputation in making lightweight gis, perfect for training in tropical climates, such as Kauai. That's the Hawaiian Island further west of Oahu, if you were unfamiliar, also known as 'the Garden Isle'. The community only has good things to say about them."
     },
   ],
   instructionals: [
